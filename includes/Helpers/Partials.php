@@ -143,7 +143,7 @@ class Partials{
                     <?php while ($c_query->have_posts()) : $c_query->the_post();
                     
                         if($args['show'] == 'successful'):
-                            if(is_reach_target_goal()):
+                            if(Utils::is_reach_target_goal()):
                                 self::output_causes_grid_part($args);
                             endif;
                         elseif($args['show'] == 'expired'):
@@ -151,7 +151,7 @@ class Partials{
                             self::output_causes_grid_part($args);
                             endif;
                         elseif($args['show'] == 'valid'):
-                            if(is_campaign_valid()):
+                            if(Utils::is_campaign_valid()):
                                 self::output_causes_grid_part($args);
                             endif;
                         else:

@@ -13,9 +13,10 @@ class Shortcodes{
         add_shortcode( 'render_causes_grid_carousel', [ __CLASS__, 'render_causes_grid_carousel'] );
         add_shortcode( 'render_progress_bar', [ __CLASS__, 'render_progress_bar'] );
         add_shortcode( 'render_progress_circle', [ __CLASS__, 'render_progress_circle'] );
+        add_shortcode( 'render_donation_level', [ __CLASS__, 'render_donation_level'] );
     }
 
-    public static function render_funding_goal($atts = array()){
+    public static function render_funding_goal( $atts = [] ){
         $args = shortcode_atts(array(
             'campaign_id'         => get_the_ID(),
             'label'      => 'Goal:',
@@ -24,7 +25,7 @@ class Shortcodes{
         return '<div class="windzfare_funding_goal"><span><b>'. $args['label'] .'</b> '. Utils::get_total_goal_by_campaign($args['campaign_id']) .'</span></div>';
     }
 
-    public static function render_fund_raised($atts = array()){
+    public static function render_fund_raised( $atts = [] ){
         $args = shortcode_atts(array(
             'campaign_id'         => get_the_ID(),
             'label'      => 'Fund Raised:',
@@ -32,6 +33,14 @@ class Shortcodes{
 
         return '<div class="windzfare_fund_raised"><span><b>'. $args['label'] .'</b> '. Utils::get_total_fund_raised_by_campaign($args['campaign_id']) .'</span></div>';
 
+    }
+
+    public static function render_donation_level( $atts = [] ){
+        $args = shortcode_atts(array(
+            'campaign_id'         => get_the_ID(),
+        ), $atts );
+
+        echo Partials::output_donation_level( $args['campaign_id'] );
     }
 
     public static function render_fund_raised_percentage(){
@@ -116,14 +125,14 @@ class Shortcodes{
                     );
                 }
             }
-
+ 
             $c_query = new \WP_Query( $query_args );
             if ($c_query->have_posts()): ?>
             <div class="windzfare-wrapper">
                 <div class="row">
                     <?php while ( $c_query->have_posts() ) : $c_query->the_post();
                         if ( $args['show'] == 'successful' ):
-                            if ( is_reach_target_goal() ):
+                            if ( Utils::is_reach_target_goal() ):
                                 Partials::output_causes_grid_part( $args );
                             endif;
                         elseif ( $args['show'] == 'expired' ):
@@ -131,7 +140,7 @@ class Shortcodes{
                                 Partials::output_causes_grid_part( $args );
                             endif;
                         elseif ( $args['show'] == 'valid' ):
-                            if ( is_campaign_valid() ):
+                            if ( Utils::is_campaign_valid() ):
                                 Partials::output_causes_grid_part( $args );
                             endif;
                         else:

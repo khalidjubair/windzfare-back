@@ -160,7 +160,7 @@ class Utils {
         return $wp_sql->total_sales_amount;
     }
 
-    public static function is_reach_target_goal($campaign_id=null){
+    public static function is_reach_target_goal( $campaign_id = null ){
         global $post;
 
         if (self::is_campaign($campaign_id)){
@@ -188,7 +188,7 @@ class Utils {
         }
     }
  
-    public static function date_remaining($campaign_id = 0){
+    public static function date_remaining( $campaign_id = 0 ){
         global $post;
 
         if ($campaign_id == 0) $campaign_id = $post->ID;
@@ -207,17 +207,17 @@ class Utils {
         return 0;
     }
 
-    public static function is_campaign_valid($campaign_id=null){
+    public static function is_campaign_valid( $campaign_id=null ){
         global $post;
-        if (self::is_campaign($campaign_id)){
-            $campaign_end_method = get_post_meta($post->ID, '_windzfare_campaign_end_method', true);
+        if (self::is_campaign( $campaign_id )){
+            $campaign_end_method = get_post_meta( $post->ID, '_windzfare_campaign_end_method', true );
         }else{
             $campaign_end_method = '';
         }
         switch ($campaign_end_method) {
 
             case 'target_goal':
-                if (is_reach_target_goal()) {
+                if (self::is_reach_target_goal()) {
                     return false;
                 } else {
                     return true;
@@ -233,7 +233,7 @@ class Utils {
                 break;
 
             case 'target_goal_and_date':
-                if (!is_reach_target_goal()) {
+                if (!self::is_reach_target_goal()) {
                     return true;
                 }
                 if (self::date_remaining()) {
@@ -266,7 +266,7 @@ class Utils {
         }
         if($percent > 100){
             return 100;
-        }
+        } 
         return ceil($percent);
     }
 
@@ -276,7 +276,12 @@ class Utils {
 
     public static function price($price){
         if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) )) {
-            return get_woocommerce_currency_symbol().number_format($price,wc_get_price_decimals(),wc_get_price_decimal_separator(), wc_get_price_thousand_separator());
+            return get_woocommerce_currency_symbol().number_format( 
+                $price, 
+                wc_get_price_decimals(), 
+                wc_get_price_decimal_separator(), 
+                wc_get_price_thousand_separator()
+            );
         }else{
             return $price;
         }

@@ -1,13 +1,13 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <!--
-2018-6-14: Created with FontForge (http://fontforge.org)
+2019-5-24: Created with FontForge (http://fontforge.org)
 -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20160407 at Thu Jun 14 08:50:34 2018
+Created by FontForge 20160407 at Fri May 24 15:45:40 2019
  By Adam Bradley
-Copyright (c) 2018, Adam Bradley
+Copyright (c) 2019, Adam Bradley
 </metadata>
 <defs>
 <font id="Ionicons" horiz-adv-x="416" >
@@ -105,7 +105,7 @@ c17 40 50 71 91 86zM381 160h-102l72 129c21 -27 33 -60 33 -97c0 -11 -1 -22 -3 -32
 l78 -126c-8 -1 -15 -2 -23 -2c-40 0 -76 14 -104 38z" />
     <glyph glyph-name="ion-md-list" unicode="&#xf31b;" horiz-adv-x="352" 
 d="M0 120v48h256v-48h-256zM0 216v48h320v-48h-320zM0 312v48h352v-48h-352zM0 24v48h288v-48h-288z" />
-    <glyph glyph-name="ion-ios-windzfare" unicode="&#xf1ef;" horiz-adv-x="384" 
+    <glyph glyph-name="ion-ios-power" unicode="&#xf1ef;" horiz-adv-x="384" 
 d="M316 336c43 -36 68 -89 68 -145c0 -105 -86 -191 -192 -191s-192 86 -192 191c0 56 25 109 68 145c3 3 8 5 12 5c5 0 9 -3 13 -7c3 -4 5 -8 5 -13s-3 -10 -7 -13c-35 -29 -55 -72 -55 -117c0 -85 70 -155 156 -155s156 70 156 155c0 45 -20 87 -55 117c-4 3 -7 8 -7 13
 s2 9 5 13s9 7 14 7c4 0 8 -2 11 -5zM193 174c-10 0 -19 8 -19 18v174c0 10 9 18 19 18s18 -8 18 -18v-174c0 -10 -8 -18 -18 -18z" />
     <glyph glyph-name="ion-md-grid" unicode="&#xf302;" horiz-adv-x="384" 
@@ -316,7 +316,7 @@ d="M48 324v-68h-48v68c0 34 27 60 61 60h67v-48h-68c-7 0 -12 -5 -12 -12zM356 384c3
 c0 -7 5 -12 12 -12z" />
     <glyph glyph-name="ion-ios-navigate" unicode="&#xf46e;" 
 d="M208 400c115 0 208 -93 208 -208s-93 -208 -208 -208s-208 93 -208 208s93 208 208 208zM208 64l96 224l-224 -96h128v-128z" />
-    <glyph glyph-name="ion-md-windzfare" unicode="&#xf359;" 
+    <glyph glyph-name="ion-md-power" unicode="&#xf359;" 
 d="M231 400v-231h-46v231h46zM343 350c45 -38 73 -95 73 -158c0 -115 -93 -208 -208 -208s-208 93 -208 208c0 63 28 120 73 158l33 -33c-36 -30 -60 -74 -60 -125c0 -89 72 -162 162 -162s162 73 162 162c0 51 -24 96 -60 125z" />
     <glyph glyph-name="ion-ios-stopwatch" unicode="&#xf4b5;" horiz-adv-x="384" 
 d="M352 304l-26 26c-3 3 -3 8 0 11l12 11c3 3 8 3 11 0l25 -25c3 -3 3 -8 0 -11l-11 -12c-3 -3 -8 -3 -11 0zM21 304l-11 12c-3 3 -3 8 0 11l25 25c3 3 8 3 11 0l12 -11c3 -3 3 -8 0 -11l-26 -26c-3 -3 -8 -3 -11 0zM216 366c95 -12 168 -92 168 -190
