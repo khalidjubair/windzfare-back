@@ -1,0 +1,22 @@
+{
+    "name": "windzwp/windzfare",
+    "description": "Windzfare is woocommerce based donation and fundraising plugin",
+    "type": "wordpress-plugin",
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Windz WP",
+            "email": "windzwp@gmail.com"
+        }
+    ], 
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Windzfare\\": "includes/"
+        },
+        "files": [
+            
+        ]
+    }
+}
