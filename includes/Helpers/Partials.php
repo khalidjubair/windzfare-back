@@ -138,32 +138,33 @@ class Partials{
 
             $c_query = new \WP_Query($query_args);
             if ($c_query->have_posts()): ?>
-            <div class="row">
-                <?php while ($c_query->have_posts()) : $c_query->the_post();
-                
-                    if($args['show'] == 'successful'):
-                        if(is_reach_target_goal()):
+            <div class="windzfare-wrapper">
+                <div class="row">
+                    <?php while ($c_query->have_posts()) : $c_query->the_post();
+                    
+                        if($args['show'] == 'successful'):
+                            if(is_reach_target_goal()):
+                                self::output_causes_grid_part($args);
+                            endif;
+                        elseif($args['show'] == 'expired'):
+                            if(Utils::date_remaining() == false):
+                            self::output_causes_grid_part($args);
+                            endif;
+                        elseif($args['show'] == 'valid'):
+                            if(is_campaign_valid()):
+                                self::output_causes_grid_part($args);
+                            endif;
+                        else:
                             self::output_causes_grid_part($args);
                         endif;
-                    elseif($args['show'] == 'expired'):
-                        if(Utils::date_remaining() == false):
-                        self::output_causes_grid_part($args);
-                        endif;
-                    elseif($args['show'] == 'valid'):
-                        if(is_campaign_valid()):
-                            self::output_causes_grid_part($args);
-                        endif;
-                    else:
-                        self::output_causes_grid_part($args);
-                    endif;
-                endwhile; ?>
-                </div>
-                <?php self::paging_nav(); ?>
-            <?php
-            else:
-                self::output_causes_grid_part($args);
-            endif;
-
+                    endwhile; ?>
+                    </div>
+                    <?php self::paging_nav(); ?>
+                <?php
+                else:
+                    self::output_causes_grid_part($args);
+                endif;
+            ?></div><?php
         $html = ob_get_clean();
         wp_reset_postdata();
         return $html;

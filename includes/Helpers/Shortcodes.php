@@ -119,30 +119,31 @@ class Shortcodes{
 
             $c_query = new \WP_Query( $query_args );
             if ($c_query->have_posts()): ?>
-            <div class="row">
-                <?php while ( $c_query->have_posts() ) : $c_query->the_post();
-                    if ( $args['show'] == 'successful' ):
-                        if ( is_reach_target_goal() ):
+            <div class="windzfare-wrapper">
+                <div class="row">
+                    <?php while ( $c_query->have_posts() ) : $c_query->the_post();
+                        if ( $args['show'] == 'successful' ):
+                            if ( is_reach_target_goal() ):
+                                Partials::output_causes_grid_part( $args );
+                            endif;
+                        elseif ( $args['show'] == 'expired' ):
+                            if ( Utils::date_remaining() == false ):
+                                Partials::output_causes_grid_part( $args );
+                            endif;
+                        elseif ( $args['show'] == 'valid' ):
+                            if ( is_campaign_valid() ):
+                                Partials::output_causes_grid_part( $args );
+                            endif;
+                        else:
                             Partials::output_causes_grid_part( $args );
                         endif;
-                    elseif ( $args['show'] == 'expired' ):
-                        if ( Utils::date_remaining() == false ):
-                            Partials::output_causes_grid_part( $args );
-                        endif;
-                    elseif ( $args['show'] == 'valid' ):
-                        if ( is_campaign_valid() ):
-                            Partials::output_causes_grid_part( $args );
-                        endif;
-                    else:
-                        Partials::output_causes_grid_part( $args );
-                    endif;
-                endwhile; ?>
-                </div>
-            <?php
-            else:
-                Partials::output_causes_grid_part( $args );
-            endif;
-
+                    endwhile; ?>
+                    </div>
+                <?php
+                else:
+                    Partials::output_causes_grid_part( $args );
+                endif;
+            ?></div><?php
         $html = ob_get_clean();
         wp_reset_postdata();
         return $html;
@@ -230,54 +231,60 @@ class Shortcodes{
 
             $c_query = new \WP_Query( $query_args );
             if ($c_query->have_posts()): ?>
-            <div class="owl-carousel owl-theme causes_carousel side_nav">
-                <?php while ( $c_query->have_posts() ) : $c_query->the_post();
-                    if ( $args['show'] == 'successful' ):
-                        if ( is_reach_target_goal() ):
+            <div class="windzfare-wrapper">
+                <div class="owl-carousel owl-theme windzfare_causes_carousel side_nav">
+                    <?php while ( $c_query->have_posts() ) : $c_query->the_post();
+                        if ( $args['show'] == 'successful' ):
+                            if ( is_reach_target_goal() ):
+                                Partials::output_causes_grid_carousel_part();
+                            endif;
+                        elseif ( $args['show'] == 'expired' ):
+                            if ( Utils::date_remaining() == false ):
+                                Partials::output_causes_grid_carousel_part();
+                            endif;
+                        elseif ( $args['show'] == 'valid' ):
+                            if ( is_campaign_valid() ):
+                                Partials::output_causes_grid_carousel_part();
+                            endif;
+                        else:
                             Partials::output_causes_grid_carousel_part();
                         endif;
-                    elseif ( $args['show'] == 'expired' ):
-                        if ( Utils::date_remaining() == false ):
-                            Partials::output_causes_grid_carousel_part();
-                        endif;
-                    elseif ( $args['show'] == 'valid' ):
-                        if ( is_campaign_valid() ):
-                            Partials::output_causes_grid_carousel_part();
-                        endif;
-                    else:
-                        Partials::output_causes_grid_carousel_part();
-                    endif;
-                endwhile; ?>
-            <?php
-            else:
-                Partials::output_causes_grid_carousel_part();
-            endif;
-
+                    endwhile; ?>
+                    </div>
+                <?php
+                else:
+                    Partials::output_causes_grid_carousel_part();
+                endif;
+            ?></div><?php
         $html = ob_get_clean();
         wp_reset_postdata();
         return $html;
     }
 
     public static function render_progress_bar(){
-        return '<div class="windzfare_progress_content">
-                    <div class="windzfare_progress_inner">
-                        <div class="windzfare_progress_bar_back">
-                            <div class="windzfare_progress_bar" style="max-width: 95%;"><span class="windzfare_progress_value">'. Utils::get_fund_raised_percent() .'</span></div>
+        return '<div class="windzfare-wrapper">
+                    <div class="windzfare_progress_content">
+                        <div class="windzfare_progress_inner">
+                            <div class="windzfare_progress_bar_back">
+                                <div class="windzfare_progress_bar" style="max-width: '. Utils::get_fund_raised_percent() .'%;"><span class="windzfare_progress_value">'. Utils::get_fund_raised_percent() .'</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>';
     }
 
     public static function render_progress_circle(){
-        return '<div class="windzfare_progress_inner">
-                    <div class="windzfare_progress_bar_back">
-                        <span class="windzfare_progress_left">
-                            <span class="windzfare_progress_bar"></span>
-                        </span>
-                        <span class="windzfare_progress_right">
-                            <span class="windzfare_progress_bar"></span>
-                        </span>
-                        <div class="windzfare_progress_value">'. Utils::get_fund_raised_percent() .'</div>
+        return '<div class="windzfare-wrapper">
+                    <div class="windzfare_progress_inner">
+                        <div class="windzfare_progress_bar_back">
+                            <span class="windzfare_progress_left">
+                                <span class="windzfare_progress_bar"></span>
+                            </span>
+                            <span class="windzfare_progress_right">
+                                <span class="windzfare_progress_bar"></span>
+                            </span>
+                            <div class="windzfare_progress_value">'. Utils::get_fund_raised_percent() .'</div>
+                        </div>
                     </div>
                 </div>';
     }
