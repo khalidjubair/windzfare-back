@@ -188,28 +188,28 @@ class Partials{
         
         ?>
         <div class="col-lg-<?php echo $grid;?> col-md-6">
-            <div class="power_causes">
-                <div class="power_causes_wrapper">
-                    <div class="power_causes_image">
+            <div class="windzfare_causes">
+                <div class="windzfare_causes_wrapper">
+                    <div class="windzfare_causes_image">
                         <img class="primary_img" src="<?php echo $image_link; ?>" alt="">
                         <?php $categories = get_the_terms( get_the_ID(), 'product_cat' ); ?>
-                        <div class="power_highlight_tag"><?php echo $categories[0]->name; ?></div>
+                        <div class="windzfare_highlight_tag"><?php echo $categories[0]->name; ?></div>
                     </div>
-                    <div class="power_causes_content">
+                    <div class="windzfare_causes_content">
                         <h4><?php the_title();?></h4>
                         <p><?php the_excerpt();?></p>
-                        <div class="power_progress_content">
-                            <div class="power_progress_bar_back">
-                                <div class="power_progress_bar" style="max-width: 90%;"><span class="power_progress_value"><?php echo $fund_raised_percent; ?></span></div>
+                        <div class="windzfare_progress_content">
+                            <div class="windzfare_progress_bar_back">
+                                <div class="windzfare_progress_bar" style="max-width: 90%;"><span class="windzfare_progress_value"><?php echo $fund_raised_percent; ?></span></div>
                             </div>
-                            <div class="power_progress_amount"><span><i class="ion-md-wifi"></i> <b><?php esc_html_e('Goal:','windzfare'); ?></b> <?php echo wc_price($funding_goal); ?></span> <span><i class="ion-logo-usd"></i> <b><?php esc_html_e('Raised:', 'windzfare'); ?></b> <?php echo $raised; ?></span></div>
+                            <div class="windzfare_progress_amount"><span><i class="ion-md-wifi"></i> <b><?php esc_html_e('Goal:','windzfare'); ?></b> <?php echo wc_price($funding_goal); ?></span> <span><i class="ion-logo-usd"></i> <b><?php esc_html_e('Raised:', 'windzfare'); ?></b> <?php echo $raised; ?></span></div>
                         </div>
                     </div>
-                    <div class="power_button_group">
-                        <a href="<?php the_permalink();?>" class="power_button effect_1">
+                    <div class="windzfare_button_group">
+                        <a href="<?php the_permalink();?>" class="windzfare_button effect_1">
                             <span class="button_value"><?php esc_html_e('Donate Now','windzfare'); ?></span>
                         </a>
-                        <a href="<?php the_permalink();?>" class="power_button effect_3">
+                        <a href="<?php the_permalink();?>" class="windzfare_button effect_3">
                             <span class="button_value"><?php esc_html_e('Learn More','windzfare'); ?></span>
                         </a>
                     </div>
@@ -234,28 +234,28 @@ class Partials{
         
         ?>
         <div class="item">
-            <div class="power_causes">
-                <div class="power_causes_wrapper">
-                    <div class="power_causes_image">
+            <div class="windzfare_causes">
+                <div class="windzfare_causes_wrapper">
+                    <div class="windzfare_causes_image">
                         <img class="primary_img" src="<?php echo $image_link; ?>" alt="">
                         <?php $categories = get_the_terms( get_the_ID(), 'product_cat' ); ?>
-                        <div class="power_highlight_tag"><?php echo $categories[0]->name; ?></div>
+                        <div class="windzfare_highlight_tag"><?php echo $categories[0]->name; ?></div>
                     </div>
-                    <div class="power_causes_content">
+                    <div class="windzfare_causes_content">
                         <h4><?php the_title();?></h4>
                         <p><?php the_excerpt();?></p>
-                        <div class="power_progress_content">
-                            <div class="power_progress_bar_back">
-                                <div class="power_progress_bar" style="max-width: 90%;"><span class="power_progress_value"><?php echo $fund_raised_percent; ?></span></div>
+                        <div class="windzfare_progress_content">
+                            <div class="windzfare_progress_bar_back">
+                                <div class="windzfare_progress_bar" style="max-width: 90%;"><span class="windzfare_progress_value"><?php echo $fund_raised_percent; ?></span></div>
                             </div>
-                            <div class="power_progress_amount"><span><i class="ion-md-wifi"></i> <b><?php esc_html_e('Goal:','windzfare'); ?></b> <?php echo wc_price($funding_goal); ?></span> <span><i class="ion-logo-usd"></i> <b><?php esc_html_e('Raised:', 'windzfare'); ?></b> <?php echo $raised; ?></span></div>
+                            <div class="windzfare_progress_amount"><span><i class="ion-md-wifi"></i> <b><?php esc_html_e('Goal:','windzfare'); ?></b> <?php echo wc_price($funding_goal); ?></span> <span><i class="ion-logo-usd"></i> <b><?php esc_html_e('Raised:', 'windzfare'); ?></b> <?php echo $raised; ?></span></div>
                         </div>
                     </div>
-                    <div class="power_button_group">
-                        <a href="<?php the_permalink();?>" class="power_button effect_1">
+                    <div class="windzfare_button_group">
+                        <a href="<?php the_permalink();?>" class="windzfare_button effect_1">
                             <span class="button_value"><?php esc_html_e('Donate Now','windzfare'); ?></span>
                         </a>`
-                        <a href="<?php the_permalink();?>" class="power_button effect_3">
+                        <a href="<?php the_permalink();?>" class="windzfare_button effect_3">
                             <span class="button_value"><?php esc_html_e('Learn More','windzfare'); ?></span>
                         </a>
                     </div>

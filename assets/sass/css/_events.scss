@@ -1,16 +1,16 @@
-.power_events{
+.windzfare_events{
     position: relative;
     background: $white-color;
     box-shadow: 0px 0px 13px rgba($primary-color, 0.07);
     margin: 0px 0px 15px 0px;
     text-align: left;
-    .power_events_image{
+    .windzfare_events_image{
         position: relative;
         img{
             width: 100%;
         }
     }
-    .power_events_date{
+    .windzfare_events_date{
         display: inline-block;
         width: 65px;
         height: 65px;
@@ -37,7 +37,7 @@
             line-height: 20px;
         }
     }
-    .power_events_content {
+    .windzfare_events_content {
         padding: 35px 30px;
         h3{
             position: relative;
@@ -53,10 +53,10 @@
             line-height: 30px;
         }
     }
-    &:hover .power_events_content h3 a{
+    &:hover .windzfare_events_content h3 a{
         color: $primary-color;
     }
-    .power_events_bottom{
+    .windzfare_events_bottom{
         font-family: $heading-font;
         font-size: $font-12;
         margin-top: 30px;
@@ -81,7 +81,7 @@
             font-weight: $font-medium;
         }
     }  
-    .power_events_location{
+    .windzfare_events_location{
         font-size: $font-12;
         font-weight: $font-semibold;
         i{
@@ -91,13 +91,13 @@
     }
 
     &.second{
-        .power_events_date{
+        .windzfare_events_date{
             background: $second-color;
         }
-        &:hover .power_events_content h3 a{
+        &:hover .windzfare_events_content h3 a{
             color: $second-color;
         }
-        .power_events_bottom{
+        .windzfare_events_bottom{
             a{
                 color: $second-color;
                 @include bordered(1px, solid, $second-color);
@@ -110,7 +110,7 @@
                 color: $second-color;
             }
         }  
-        .power_events_location{
+        .windzfare_events_location{
             i{
                 color: $second-color;
             }
@@ -118,13 +118,13 @@
     }
 
     &.third{
-        .power_events_date{
+        .windzfare_events_date{
             background: $third-color;
         }
-        &:hover .power_events_content h3 a{
+        &:hover .windzfare_events_content h3 a{
             color: $third-color;
         }
-        .power_events_bottom{
+        .windzfare_events_bottom{
             a{
                 color: $third-color;
                 @include bordered(1px, solid, $third-color);
@@ -137,7 +137,7 @@
                 color: $third-color;
             }
         }  
-        .power_events_location{
+        .windzfare_events_location{
             i{
                 color: $third-color;
             }
@@ -145,13 +145,13 @@
     }
 
     &.fourth{
-        .power_events_date{
+        .windzfare_events_date{
             background: $fourth-color;
         }
-        &:hover .power_events_content h3 a{
+        &:hover .windzfare_events_content h3 a{
             color: $fourth-color;
         }
-        .power_events_bottom{
+        .windzfare_events_bottom{
             a{
                 color: $fourth-color;
                 @include bordered(1px, solid, $fourth-color);
@@ -164,7 +164,7 @@
                 color: $fourth-color;
             }
         }  
-        .power_events_location{
+        .windzfare_events_location{
             i{
                 color: $fourth-color;
             }
@@ -172,13 +172,13 @@
     }
 
     &.fifth{
-        .power_events_date{
+        .windzfare_events_date{
             background: $fifth-color;
         }
-        &:hover .power_events_content h3 a{
+        &:hover .windzfare_events_content h3 a{
             color: $fifth-color;
         }
-        .power_events_bottom{
+        .windzfare_events_bottom{
             a{
                 color: $fifth-color;
                 @include bordered(1px, solid, $fifth-color);
@@ -191,7 +191,7 @@
                 color: $fifth-color;
             }
         }  
-        .power_events_location{
+        .windzfare_events_location{
             i{
                 color: $fifth-color;
             }
@@ -199,13 +199,13 @@
     }
 
     &.sixth{
-        .power_events_date{
+        .windzfare_events_date{
             background: $sixth-color;
         }
-        &:hover .power_events_content h3 a{
+        &:hover .windzfare_events_content h3 a{
             color: $sixth-color;
         }
-        .power_events_bottom{
+        .windzfare_events_bottom{
             a{
                 color: $sixth-color;
                 @include bordered(1px, solid, $sixth-color);
@@ -218,7 +218,7 @@
                 color: $sixth-color;
             }
         }  
-        .power_events_location{
+        .windzfare_events_location{
             i{
                 color: $sixth-color;
             }
@@ -229,7 +229,7 @@
 
 
 
-.power_events_list{
+.windzfare_events_list{
     position: relative;
     background: $white-color;
     margin: 0px 0px 40px 0px;
@@ -237,16 +237,16 @@
     &:last-child{
         margin-bottom: 0px;
     }
-    .power_events_list_wrapper{
+    .windzfare_events_list_wrapper{
         display: flex;
         align-items: center;
-        .power_events_list_image{
+        .windzfare_events_list_image{
             position: relative;
             min-width: 145px;
             width: 145px;
             margin-right: 20px;
         }
-        .power_events_list_content {
+        .windzfare_events_list_content {
             h6{
                 position: relative;
                 line-height: 24px;
@@ -256,7 +256,7 @@
                     color: $black-color;
                 }
             }
-            .power_events_list_date{
+            .windzfare_events_list_date{
                 color: $primary-color;
                 font-size: $font-14;
                 font-weight: $font-medium;
@@ -270,71 +270,71 @@
                 width: auto;
             }
         }
-        &:hover .power_events_list_content h6 a{
+        &:hover .windzfare_events_list_content h6 a{
             color: $primary-color;
         }
     }
 
     &.second{
-        .power_events_list_wrapper{
-            .power_events_list_content {
-                .power_events_list_date{
+        .windzfare_events_list_wrapper{
+            .windzfare_events_list_content {
+                .windzfare_events_list_date{
                     color: $second-color;
                 }
             }
-            &:hover .power_events_list_content h6 a{
+            &:hover .windzfare_events_list_content h6 a{
                 color: $second-color;
             }
         }
     }
 
     &.third{
-        .power_events_list_wrapper{
-            .power_events_list_content {
-                .power_events_list_date{
+        .windzfare_events_list_wrapper{
+            .windzfare_events_list_content {
+                .windzfare_events_list_date{
                     color: $third-color;
                 }
             }
-            &:hover .power_events_list_content h6 a{
+            &:hover .windzfare_events_list_content h6 a{
                 color: $third-color;
             }
         }
     }
 
     &.fourth{
-        .power_events_list_wrapper{
-            .power_events_list_content {
-                .power_events_list_date{
+        .windzfare_events_list_wrapper{
+            .windzfare_events_list_content {
+                .windzfare_events_list_date{
                     color: $fourth-color;
                 }
             }
-            &:hover .power_events_list_content h6 a{
+            &:hover .windzfare_events_list_content h6 a{
                 color: $fourth-color;
             }
         }
     }
 
     &.fifth{
-        .power_events_list_wrapper{
-            .power_events_list_content {
-                .power_events_list_date{
+        .windzfare_events_list_wrapper{
+            .windzfare_events_list_content {
+                .windzfare_events_list_date{
                     color: $fifth-color;
                 }
             }
-            &:hover .power_events_list_content h6 a{
+            &:hover .windzfare_events_list_content h6 a{
                 color: $fifth-color;
             }
         }
     }
 
     &.sixth{
-        .power_events_list_wrapper{
-            .power_events_list_content {
-                .power_events_list_date{
+        .windzfare_events_list_wrapper{
+            .windzfare_events_list_content {
+                .windzfare_events_list_date{
                     color: $sixth-color;
                 }
             }
-            &:hover .power_events_list_content h6 a{
+            &:hover .windzfare_events_list_content h6 a{
                 color: $sixth-color;
             }
         }
@@ -394,7 +394,7 @@
         }
     }
     .upcoming_event_content_right{
-        .power_button{
+        .windzfare_button{
             padding: 13px 90px;
             background: transparent;
         }
@@ -510,7 +510,7 @@
         }
         .upcoming_event_content_right{
             margin-top: 30px;
-            .power_button{
+            .windzfare_button{
                 padding: 10px 50px;
                 font-size: 12px;
             }

@@ -1,7 +1,7 @@
 .causes{
     padding-top: 40px;
     padding-bottom: 80px;
-    .power_heading_wrapper:before{
+    .windzfare_heading_wrapper:before{
         content: '';
         position: absolute;    
         background-image: url(../images/circle_line1.png);
@@ -13,37 +13,37 @@
         top: 50%;
         transform: translateY(-20%);
     }
-    .power_button_group{
+    .windzfare_button_group{
         text-align: center;
-        .power_button{
+        .windzfare_button{
             padding: 13px 80px;
         }
     }
     
     &.bg_image_4{
-        .power_heading_wrapper:before{
+        .windzfare_heading_wrapper:before{
             background-image: url(../images/circle_line2.png);
         }
-        .power_title{
+        .windzfare_title{
             color: $white-color;
         }
     }
 }
-.power_causes{
+.windzfare_causes{
     position: relative;
     background: $white-color;
     box-shadow: 0px 15px 25px rgba($primary-color, 0.12);
     margin: 0px 0px 35px 0px;
     text-align: center;
-    .power_causes_image img{
+    .windzfare_causes_image img{
         width: 100%;
     }
-    .power_highlight_tag{
+    .windzfare_highlight_tag{
         position: absolute;
         top: 30px;
         left: 30px;
     }
-    .power_causes_content {
+    .windzfare_causes_content {
         padding: 30px 30px;
         h4{
             position: relative;
@@ -61,17 +61,17 @@
             width: auto;
         }
     }
-    &:hover .power_causes_content h4{
+    &:hover .windzfare_causes_content h4{
         color: $primary-color;
     }
-    .power_button_group{
+    .windzfare_button_group{
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         padding: 20px 30px;
         @include bordered-top(1px, dashed, #ededed);
         @include transition(color 0.5s, background-color 0.8s);
-        .power_button{
+        .windzfare_button{
             font-size: $font-12;
             font-weight: $font-medium;
             padding: 6px 25px;
@@ -79,226 +79,226 @@
             color: $primary-color;
             @include bordered(2px, solid, $white-color);
         }
-        .power_button:before {
+        .windzfare_button:before {
             background: $primary-color;
         }
-        .power_button:after {
+        .windzfare_button:after {
             background: $white-color;
         }
     }
-    &:hover .power_button_group{
+    &:hover .windzfare_button_group{
         @include bordered-top(1px, dashed, transparent);
         background: $primary-color;
     }  
-    &:hover .power_button{
+    &:hover .windzfare_button{
         color: $white-color;
     }
-    &:hover .power_button:before {
+    &:hover .windzfare_button:before {
         background: $white-color;
     }
-    &:hover .power_button:after {
+    &:hover .windzfare_button:after {
         background: $primary-color;
     }
-    &:hover .power_button:hover{
+    &:hover .windzfare_button:hover{
         background: $white-color;
         color: $primary-color;
     }
 
     /*--------- Color Variation --------*/
     &.second{
-        .power_highlight_tag{
+        .windzfare_highlight_tag{
             background: $second-color;
         }
-        &:hover .power_causes_content h4{
+        &:hover .windzfare_causes_content h4{
             color: $second-color;
         }
-        .power_button_group{
-            .power_button{
+        .windzfare_button_group{
+            .windzfare_button{
                 background: transparent;
                 color: $second-color;
             }
-            .power_button:before {
+            .windzfare_button:before {
                 background: $second-color;
             }
-            .power_button:after {
+            .windzfare_button:after {
                 background: $white-color;
             }
         }
-        &:hover .power_button_group{
+        &:hover .windzfare_button_group{
             background: $second-color;
         }  
-        &:hover .power_button{
+        &:hover .windzfare_button{
             color: $white-color;
         }
-        &:hover .power_button:before {
+        &:hover .windzfare_button:before {
             background: $white-color;
         }
-        &:hover .power_button:after {
+        &:hover .windzfare_button:after {
             background: $second-color;
         }
-        &:hover .power_button:hover{
+        &:hover .windzfare_button:hover{
             background: $white-color;
             color: $second-color;
         }
     }
     &.third{
-        .power_highlight_tag{
+        .windzfare_highlight_tag{
             background: $third-color;
         }
-        &:hover .power_causes_content h4{
+        &:hover .windzfare_causes_content h4{
             color: $third-color;
         }
-        .power_button_group{
-            .power_button{
+        .windzfare_button_group{
+            .windzfare_button{
                 background: transparent;
                 color: $third-color;
             }
-            .power_button:before {
+            .windzfare_button:before {
                 background: $third-color;
             }
-            .power_button:after {
+            .windzfare_button:after {
                 background: $white-color;
             }
         }
-        &:hover .power_button_group{
+        &:hover .windzfare_button_group{
             background: $third-color;
         }  
-        &:hover .power_button{
+        &:hover .windzfare_button{
             color: $white-color;
         }
-        &:hover .power_button:before {
+        &:hover .windzfare_button:before {
             background: $white-color;
         }
-        &:hover .power_button:after {
+        &:hover .windzfare_button:after {
             background: $third-color;
         }
-        &:hover .power_button:hover{
+        &:hover .windzfare_button:hover{
             background: $white-color;
             color: $third-color;
         }
     }
     &.fourth{
-        .power_highlight_tag{
+        .windzfare_highlight_tag{
             background: $fourth-color;
         }
-        &:hover .power_causes_content h4{
+        &:hover .windzfare_causes_content h4{
             color: $fourth-color;
         }
-        .power_button_group{
-            .power_button{
+        .windzfare_button_group{
+            .windzfare_button{
                 background: transparent;
                 color: $fourth-color;
             }
-            .power_button:before {
+            .windzfare_button:before {
                 background: $fourth-color;
             }
-            .power_button:after {
+            .windzfare_button:after {
                 background: $white-color;
             }
         }
-        &:hover .power_button_group{
+        &:hover .windzfare_button_group{
             background: $fourth-color;
         }  
-        &:hover .power_button{
+        &:hover .windzfare_button{
             color: $white-color;
         }
-        &:hover .power_button:before {
+        &:hover .windzfare_button:before {
             background: $white-color;
         }
-        &:hover .power_button:after {
+        &:hover .windzfare_button:after {
             background: $fourth-color;
         }
-        &:hover .power_button:hover{
+        &:hover .windzfare_button:hover{
             background: $white-color;
             color: $fourth-color;
         }
     }
     &.fifth{
-        .power_highlight_tag{
+        .windzfare_highlight_tag{
             background: $fifth-color;
         }
-        &:hover .power_causes_content h4{
+        &:hover .windzfare_causes_content h4{
             color: $fifth-color;
         }
-        .power_button_group{
-            .power_button{
+        .windzfare_button_group{
+            .windzfare_button{
                 background: transparent;
                 color: $fifth-color;
             }
-            .power_button:before {
+            .windzfare_button:before {
                 background: $fifth-color;
             }
-            .power_button:after {
+            .windzfare_button:after {
                 background: $white-color;
             }
         }
-        &:hover .power_button_group{
+        &:hover .windzfare_button_group{
             background: $fifth-color;
         }  
-        &:hover .power_button{
+        &:hover .windzfare_button{
             color: $white-color;
         }
-        &:hover .power_button:before {
+        &:hover .windzfare_button:before {
             background: $white-color;
         }
-        &:hover .power_button:after {
+        &:hover .windzfare_button:after {
             background: $fifth-color;
         }
-        &:hover .power_button:hover{
+        &:hover .windzfare_button:hover{
             background: $white-color;
             color: $fifth-color;
         }
     }
     &.sixth{
-        .power_highlight_tag{
+        .windzfare_highlight_tag{
             background: $sixth-color;
         }
-        &:hover .power_causes_content h4{
+        &:hover .windzfare_causes_content h4{
             color: $sixth-color;
         }
-        .power_button_group{
-            .power_button{
+        .windzfare_button_group{
+            .windzfare_button{
                 background: transparent;
                 color: $sixth-color;
             }
-            .power_button:before {
+            .windzfare_button:before {
                 background: $sixth-color;
             }
-            .power_button:after {
+            .windzfare_button:after {
                 background: $white-color;
             }
         }
-        &:hover .power_button_group{
+        &:hover .windzfare_button_group{
             background: $sixth-color;
         }  
-        &:hover .power_button{
+        &:hover .windzfare_button{
             color: $white-color;
         }
-        &:hover .power_button:before {
+        &:hover .windzfare_button:before {
             background: $white-color;
         }
-        &:hover .power_button:after {
+        &:hover .windzfare_button:after {
             background: $sixth-color;
         }
-        &:hover .power_button:hover{
+        &:hover .windzfare_button:hover{
             background: $white-color;
             color: $sixth-color;
         }
     }
 }
 
-.power_causes.second{
+.windzfare_causes.second{
     /*--------- Color Variation --------*/
-    &.second:hover .power_causes_content h4{
+    &.second:hover .windzfare_causes_content h4{
         color: $second-color;
     }
-    &.third:hover .power_causes_content h4{
+    &.third:hover .windzfare_causes_content h4{
         color: $third-color;
     }
-    &.fourth:hover .power_causes_content h4{
+    &.fourth:hover .windzfare_causes_content h4{
         color: $fourth-color;
     }
-    &.fifth:hover .power_causes_content h4{
+    &.fifth:hover .windzfare_causes_content h4{
         color: $fifth-color;
     }
 }

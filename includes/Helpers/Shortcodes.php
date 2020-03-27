@@ -21,7 +21,7 @@ class Shortcodes{
             'label'      => 'Goal:',
         ), $atts );
 
-        return '<div class="power_funding_goal"><span><b>'. $args['label'] .'</b> '. Utils::get_total_goal_by_campaign($args['campaign_id']) .'</span></div>';
+        return '<div class="windzfare_funding_goal"><span><b>'. $args['label'] .'</b> '. Utils::get_total_goal_by_campaign($args['campaign_id']) .'</span></div>';
     }
 
     public static function render_fund_raised($atts = array()){
@@ -30,7 +30,7 @@ class Shortcodes{
             'label'      => 'Fund Raised:',
         ), $atts );
 
-        return '<div class="power_fund_raised"><span><b>'. $args['label'] .'</b> '. Utils::get_total_fund_raised_by_campaign($args['campaign_id']) .'</span></div>';
+        return '<div class="windzfare_fund_raised"><span><b>'. $args['label'] .'</b> '. Utils::get_total_fund_raised_by_campaign($args['campaign_id']) .'</span></div>';
 
     }
 
@@ -119,7 +119,7 @@ class Shortcodes{
 
             $c_query = new \WP_Query( $query_args );
             if ($c_query->have_posts()): ?>
-            
+            <div class="row">
                 <?php while ( $c_query->have_posts() ) : $c_query->the_post();
                     if ( $args['show'] == 'successful' ):
                         if ( is_reach_target_goal() ):
@@ -137,6 +137,7 @@ class Shortcodes{
                         Partials::output_causes_grid_part( $args );
                     endif;
                 endwhile; ?>
+                </div>
             <?php
             else:
                 Partials::output_causes_grid_part( $args );
@@ -258,25 +259,25 @@ class Shortcodes{
     }
 
     public static function render_progress_bar(){
-        return '<div class="power_progress_content">
-                    <div class="power_progress_inner">
-                        <div class="power_progress_bar_back">
-                            <div class="power_progress_bar" style="max-width: 95%;"><span class="power_progress_value">'. Utils::get_fund_raised_percent() .'</span></div>
+        return '<div class="windzfare_progress_content">
+                    <div class="windzfare_progress_inner">
+                        <div class="windzfare_progress_bar_back">
+                            <div class="windzfare_progress_bar" style="max-width: 95%;"><span class="windzfare_progress_value">'. Utils::get_fund_raised_percent() .'</span></div>
                         </div>
                     </div>
                 </div>';
     }
 
     public static function render_progress_circle(){
-        return '<div class="power_progress_inner">
-                    <div class="power_progress_bar_back">
-                        <span class="power_progress_left">
-                            <span class="power_progress_bar"></span>
+        return '<div class="windzfare_progress_inner">
+                    <div class="windzfare_progress_bar_back">
+                        <span class="windzfare_progress_left">
+                            <span class="windzfare_progress_bar"></span>
                         </span>
-                        <span class="power_progress_right">
-                            <span class="power_progress_bar"></span>
+                        <span class="windzfare_progress_right">
+                            <span class="windzfare_progress_bar"></span>
                         </span>
-                        <div class="power_progress_value">'. Utils::get_fund_raised_percent() .'</div>
+                        <div class="windzfare_progress_value">'. Utils::get_fund_raised_percent() .'</div>
                     </div>
                 </div>';
     }
