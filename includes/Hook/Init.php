@@ -26,7 +26,6 @@ class Init{
     
 
     public static function redirect_to_checkout($url) {
-        global $woocommerce;
         if (! empty($_REQUEST['add-to-cart'])){
             $product_id = absint( $_REQUEST['add-to-cart'] );
             if (Utils::is_campaign($product_id)){
@@ -52,34 +51,7 @@ class Init{
         }
         return $url;
     }
-
-    public static function donate_input_field(){
-        global $post;
-        $product = wc_get_product( $post->ID );
-
-
-        $html = '';
-        if (Utils::is_campaign($product->get_id())){
-            $html .= '<div class="donate_field">';
-
-            if (Utils::is_campaign_valid()) {
-
-                $html .= '<form class="cart" method="post" enctype="multipart/form-data">';
-                $recomanded_price = get_post_meta($post->ID, 'wp_funding_recommended_price', true);
-                $html .= get_woocommerce_currency_symbol();
-                $html .= apply_filters('wp_donate_field', '<input type ="number" step="any" class="input-text amount wp_donation_input text" name="wp_donate_amount_field" min="0" value="100" />');
-                $html .= '<input type="hidden" name="add-to-cart" value="' . esc_attr($product->get_id()) . '" />';
-                $btn_text = get_option('wp_donation_btn_text');
-                $html .= '<button type="submit" class="'.apply_filters('add_to_donate_button_class', 'single_add_to_cart_button button alt').'">' . esc_html__(apply_filters('add_to_donate_button_text', esc_html($btn_text) ? esc_html($btn_text) : 'Donate now'), 'windzwp-trust').'</button>';
-                $html .= '</form>';
-            } else {
-                $html .= apply_filters('end_campaign_message', esc_html__('This campaign has been end', 'windzwp-trust'));
-            }
-            $html .= '</div>';
-        }
-        echo $html;
-    }
-
+    
     public static function remove_item_from_cart($passed, $product_id, $quantity ) {
         
         $product = wc_get_product($product_id);
@@ -98,9 +70,9 @@ class Init{
     public static function save_user_funding_to_cookie( $array, $int ) {
         
         if (Utils::is_campaign($array['data']->get_id())){
-            if ( ! empty($_POST['wp_donate_amount_field'])){
-                //setcookie("wp_user_donation", esc_attr($_POST['wp_donate_amount_field']), 0, "/");
-                $donate_amount = sanitize_text_field($_POST['wp_donate_amount_field']);
+            if ( ! empty($_POST['wp_fare_amount'])){
+                //setcookie("wp_user_donation", esc_attr($_POST['wp_fare_amount']), 0, "/");
+                $donate_amount = sanitize_text_field($_POST['wp_fare_amount']);
                 WC()->session->set('wp_donate_amount', $donate_amount);
 
                 if ( ! empty($_POST['wp_rewards_index'])){

@@ -198,6 +198,17 @@
         line-height: 20px;
         font-weight: $font-medium;
         color: $primary-color;
+
+        .wp_fare_amount{
+            border-left: 1px solid #f6c0cb;
+            border-right: none;
+            border-bottom: none;
+            border-radius: 0;
+            border-top: none;
+            width: 85px;
+            padding: 5px;
+            height: 40px;
+        }
     }
     .select_currency_box{
         display: flex;
@@ -229,6 +240,7 @@
     .selectdonate{
         @include bordered-right(1px, solid, #f6c0cb);
         padding: 10px 10px 10px 10px;
+        width: 150px;
     }
     .select_amount{
         width: 90px; 
@@ -341,6 +353,7 @@
         }
         .selectdonate{
             @include bordered-right(1px, solid, $second-color);
+            width: 150px;
         }
         .select_amount{
             color: $second-color;
@@ -392,6 +405,7 @@
         }
         .selectdonate{
             @include bordered-right(1px, solid, $third-color);
+            width: 150px;
         }
         .select_amount{
             color: $third-color;
@@ -440,9 +454,11 @@
         }
         .select_amount_box{
             @include bordered(1px, solid, $fourth-color);
+            
         }
         .selectdonate{
             @include bordered-right(1px, solid, $fourth-color);
+            width: 150px;
         }
         .select_amount{
             color: $fourth-color;

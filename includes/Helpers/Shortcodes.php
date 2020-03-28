@@ -22,7 +22,7 @@ class Shortcodes{
             'label'      => 'Goal:',
         ), $atts );
 
-        return '<div class="windzfare_funding_goal"><span><b>'. $args['label'] .'</b> '. Utils::get_total_goal_by_campaign($args['campaign_id']) .'</span></div>';
+        return '<div class="windzfare_funding_goal"><span><b>'. $args['label'] .'</b> '. Utils::price(Utils::get_total_goal_by_campaign($args['campaign_id'])) .'</span></div>';
     }
 
     public static function render_fund_raised( $atts = [] ){
@@ -31,7 +31,7 @@ class Shortcodes{
             'label'      => 'Fund Raised:',
         ), $atts );
 
-        return '<div class="windzfare_fund_raised"><span><b>'. $args['label'] .'</b> '. Utils::get_total_fund_raised_by_campaign($args['campaign_id']) .'</span></div>';
+        return '<div class="windzfare_fund_raised"><span><b>'. $args['label'] .'</b> '. Utils::price(Utils::get_total_fund_raised_by_campaign($args['campaign_id'])) .'</span></div>';
 
     }
 

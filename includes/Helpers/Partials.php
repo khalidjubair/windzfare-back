@@ -28,7 +28,7 @@ class Partials{
                             <div class="currency_dropdown">
                                 <?php echo get_woocommerce_currency_symbol(); ?>
                             </div>
-                            <div class="currency">Amount</div>
+                            <input type="text" name="wp_fare_amount"  class="wp_fare_amount" value = "" placeholder="<?php esc_html_e( 'Amount', 'windzfare' ); ?>"/>
                         </div>
                         <div class="select_amount_box">
                         <div class="selectdonate"><?php esc_html_e('Select Donation','windzfare');?></div>
@@ -36,20 +36,18 @@ class Partials{
                                 <label class="select_amount radio_circle">
                                     <input type="radio" name="wp_donate_amount_field" value="<?php echo esc_attr( $field['_windzfare_donation_level_amount'] ); ?>">
                                     <span class="checkmark"></span>
-                                    <span class="value"><?php echo Utils::price(esc_attr( $field['_windzfare_donation_level_amount'] )); ?></span>
+                                    <span class="value"><?php echo esc_attr( $field['_windzfare_donation_level_amount'] ); ?></span>
                                 </label>
                             <?php } ?>
                             <label class="select_amount radio_circle custom">
                                 <input type="radio" name="wp_donate_amount_field" value="custom">
                                 <span class="checkmark"></span>
-                                <input type="text" class="custom_field">
                                 <span class="value"><?php esc_html_e('Custom','windzfare');?></span>
                             </label>
                         </div>
                     </div>
                     <input type="hidden" value="<?php echo esc_attr($campaign_id); ?>" name="add-to-cart">
                     <div class="windzfare_button_group">
-                        <!-- <a class="windzfare_button effect_1" href="<?php echo home_url('/').$product->add_to_cart_url();?>"><?php esc_html_e('Donate Now', 'windzfare'); ?></a> -->
                         <input class="windzfare_button effect_1" type="submit" value="<?php esc_html_e('Donate Now', 'windzfare'); ?>" name="submit">
                     </div>
                 </form>
@@ -208,9 +206,11 @@ class Partials{
                         <p><?php the_excerpt();?></p>
                         <div class="windzfare_progress_content">
                             <div class="windzfare_progress_bar_back">
-                                <div class="windzfare_progress_bar" style="max-width: 90%;"><span class="windzfare_progress_value"><?php echo $fund_raised_percent; ?></span></div>
+                                <div class="windzfare_progress_bar" style="max-width: <?php echo $fund_raised_percent; ?>;"><span class="windzfare_progress_value"><?php echo $fund_raised_percent; ?></span></div>
                             </div>
-                            <div class="windzfare_progress_amount"><span><i class="ion-md-wifi"></i> <b><?php esc_html_e('Goal:','windzfare'); ?></b> <?php echo wc_price($funding_goal); ?></span> <span><i class="ion-logo-usd"></i> <b><?php esc_html_e('Raised:', 'windzfare'); ?></b> <?php echo $raised; ?></span></div>
+                            <div class="windzfare_progress_amount">
+                                <span><i class="ion-md-wifi"></i> <b><?php esc_html_e('Goal:','windzfare'); ?></b> <?php echo wc_price($funding_goal); ?></span> 
+                                <span><i class="ion-logo-usd"></i> <b><?php esc_html_e('Raised:', 'windzfare'); ?></b> <?php echo wc_price($raised); ?></span></div>
                         </div>
                     </div>
                     <div class="windzfare_button_group">
@@ -254,7 +254,7 @@ class Partials{
                         <p><?php the_excerpt();?></p>
                         <div class="windzfare_progress_content">
                             <div class="windzfare_progress_bar_back">
-                                <div class="windzfare_progress_bar" style="max-width: 90%;"><span class="windzfare_progress_value"><?php echo $fund_raised_percent; ?></span></div>
+                                <div class="windzfare_progress_bar" style="max-width: <?php echo $fund_raised_percent; ?>;"><span class="windzfare_progress_value"><?php echo $fund_raised_percent; ?></span></div>
                             </div>
                             <div class="windzfare_progress_amount"><span><i class="ion-md-wifi"></i> <b><?php esc_html_e('Goal:','windzfare'); ?></b> <?php echo wc_price($funding_goal); ?></span> <span><i class="ion-logo-usd"></i> <b><?php esc_html_e('Raised:', 'windzfare'); ?></b> <?php echo $raised; ?></span></div>
                         </div>
