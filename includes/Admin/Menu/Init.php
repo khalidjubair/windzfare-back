@@ -1,6 +1,5 @@
 <?php
 namespace Windzfare\Admin\Menu;
-use Windzfare\Helpers\Utils as Utils;
 
 defined( 'ABSPATH' ) || die();
 

@@ -40,7 +40,7 @@ class Shortcodes{
             'campaign_id'         => get_the_ID(),
         ), $atts );
 
-        echo Partials::output_donation_level( $args['campaign_id'] );
+        return Partials::output_donation_level( $args['campaign_id'] );
     }
 
     public static function render_fund_raised_percentage(){

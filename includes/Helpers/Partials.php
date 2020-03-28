@@ -6,8 +6,8 @@ use Windzfare\Helpers\Utils as Utils;
 class Partials{
 
     function __construct(){
-        add_action ( 'wp_ajax_donation_level', 'output_donation_level' );
-        add_action ( 'wp_ajax_nopriv_donation_level', 'output_donation_level' );
+        add_action( 'wp_ajax_donation_level', [ __CLASS__, 'output_donation_level' ] );
+        add_action( 'wp_ajax_nopriv_donation_level', [ __CLASS__, 'output_donation_level' ] );
     }
 
     public static function output_donation_level( $campaign_id = null ){
@@ -16,36 +16,43 @@ class Partials{
             $campaign_id = Utils::get_option( 'windzfare_featured_campaign', 'windzfare_options');
         }
         $donation_level_fields = get_post_meta($campaign_id, 'repeatable_donation_level_fields', true);
-        ob_start();
         
+        ob_start();
+        $product = wc_get_product($campaign_id);
         if ( $donation_level_fields ) : ?>
 
-            <div class="donation_amount_tab">
-                <div class="select_currency_box">
-                    <div class="currency_dropdown">
-                        <?php echo get_woocommerce_currency_symbol(); ?>
-                    </div>
-                    <div class="currency"><?php esc_html_e('Amount', 'windzfare'); ?></div>
-                </div>
-                <div class="select_amount_box">
-                    <div class="selectdonate"><?php esc_html_e('Select Donation','windzfare');?></div>
-                        <?php foreach ( $donation_level_fields as $field ) { ?>
-                            <label class="select_amount radio_circle">
-                                <input type="radio" name="dvalue" value="<?php echo esc_attr( $field['_donation_level_amount'] ); ?>">
+            <div class="give_donation">
+                <form enctype="multipart/form-data" method="post" class="cart">
+                    <div class="donation_amount_tab">
+                        <div class="select_currency_box">
+                            <div class="currency_dropdown">
+                                <?php echo get_woocommerce_currency_symbol(); ?>
+                            </div>
+                            <div class="currency">Amount</div>
+                        </div>
+                        <div class="select_amount_box">
+                        <div class="selectdonate"><?php esc_html_e('Select Donation','windzfare');?></div>
+                            <?php foreach ( $donation_level_fields as $field ) { ?>
+                                <label class="select_amount radio_circle">
+                                    <input type="radio" name="wp_donate_amount_field" value="<?php echo esc_attr( $field['_windzfare_donation_level_amount'] ); ?>">
+                                    <span class="checkmark"></span>
+                                    <span class="value"><?php echo Utils::price(esc_attr( $field['_windzfare_donation_level_amount'] )); ?></span>
+                                </label>
+                            <?php } ?>
+                            <label class="select_amount radio_circle custom">
+                                <input type="radio" name="wp_donate_amount_field" value="custom">
                                 <span class="checkmark"></span>
-                                <span class="value"><?php echo Utils::price(esc_attr( $field['_donation_level_amount'] )); ?></span>
+                                <input type="text" class="custom_field">
+                                <span class="value"><?php esc_html_e('Custom','windzfare');?></span>
                             </label>
-                        <?php } ?>
-                        <label class="select_amount radio_circle custom">
-                            <input type="radio" name="dvalue" value="custom">
-                            <span class="checkmark"></span>
-                            <input type="text" class="custom_field">
-                            <span class="value"><?php esc_html_e('Custom','windzfare');?></span>
-                        </label>
-                </div>
-                <div class="windzfare_button_group">
-                    <input class="windzfare_button effect_1" type="submit" value="<?php esc_html_e('Donate Now', 'windzfare'); ?>" name="submit">
-                </div>
+                        </div>
+                    </div>
+                    <input type="hidden" value="<?php echo esc_attr($campaign_id); ?>" name="add-to-cart">
+                    <div class="windzfare_button_group">
+                        <!-- <a class="windzfare_button effect_1" href="<?php echo home_url('/').$product->add_to_cart_url();?>"><?php esc_html_e('Donate Now', 'windzfare'); ?></a> -->
+                        <input class="windzfare_button effect_1" type="submit" value="<?php esc_html_e('Donate Now', 'windzfare'); ?>" name="submit">
+                    </div>
+                </form>
             </div>
         <?php endif; ?>
         <?php

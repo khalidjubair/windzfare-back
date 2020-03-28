@@ -100,6 +100,22 @@ Description:
             });
         });
 
+
+        $("input:radio[name=donation_level_amount]").change(function() {
+            
+            var val = $(this).val();
+
+            alert(val);
+
+
+            if(val == 'custom'){
+                $("#xs-donate-name-modal").val('');
+            }else{
+                $("#xs-donate-name-modal").val(val);
+            }
+        });
+
+
  	}); //end document ready function
 	
 })(jQuery);
