@@ -44,28 +44,28 @@
 
         public function define_constants(){
             
-			define('WINDZFARE_VERSION', self::version);
+			define( 'WINDZFARE_VERSION', self::version );
 			
-            define('WINDZFARE_MINIMUM_WOOCOMMERCE_VERSION','4.0.0'); 
-			define('WINDZFARE_MINIMUM_PHP_VERSION','5.6');
+            define( 'WINDZFARE_MINIMUM_WOOCOMMERCE_VERSION', '4.0.0' ); 
+			define( 'WINDZFARE_MINIMUM_PHP_VERSION', '5.6' );
 			
-            define('WINDZFARE_DIR_URL',plugin_dir_url(__FILE__));
-            define('WINDZFARE_DIR_PATH', plugin_dir_path(__FILE__));
+            define( 'WINDZFARE_DIR_URL', plugin_dir_url( __FILE__ ) );
+            define( 'WINDZFARE_DIR_PATH', plugin_dir_path( __FILE__ ) );
 
-            define('WINDZFARE_INCLUDES_DIR_PATH', WINDZFARE_DIR_PATH.'/includes');
-			define('WINDZFARE_ADMIN_DIR_PATH', WINDZFARE_INCLUDES_DIR_PATH.'/Admin');
+            define( 'WINDZFARE_INCLUDES_DIR_PATH', WINDZFARE_DIR_PATH . '/includes' );
+			define( 'WINDZFARE_ADMIN_DIR_PATH', WINDZFARE_INCLUDES_DIR_PATH . '/Admin' );
 			
-            define('WINDZFARE_ASSETS_DIR_URL', WINDZFARE_DIR_URL. '/assets');
+            define( 'WINDZFARE_ASSETS_DIR_URL', WINDZFARE_DIR_URL . '/assets' );
             
-            define('WINDZFARE_CSS_DIR_URL', WINDZFARE_ASSETS_DIR_URL .'/css');
-            define('WINDZFARE_JS_DIR_URL', WINDZFARE_ASSETS_DIR_URL .'/js');
-            define('WINDZFARE_IMG_DIR_URL', WINDZFARE_ASSETS_DIR_URL .'/images');
+            define( 'WINDZFARE_CSS_DIR_URL', WINDZFARE_ASSETS_DIR_URL . '/css' );
+            define( 'WINDZFARE_JS_DIR_URL', WINDZFARE_ASSETS_DIR_URL . '/js' );
+            define( 'WINDZFARE_IMG_DIR_URL', WINDZFARE_ASSETS_DIR_URL . '/images' );
 
-            define('WINDZFARE_ADMIN_CSS_DIR_URL', WINDZFARE_CSS_DIR_URL .'/admin');
-            define('WINDZFARE_ADMIN_JS_DIR_URL', WINDZFARE_JS_DIR_URL .'/admin');
-            define('WINDZFARE_ADMIN_IMG_DIR_URL', WINDZFARE_IMG_DIR_URL .'/admin');
+            define( 'WINDZFARE_ADMIN_CSS_DIR_URL', WINDZFARE_CSS_DIR_URL . '/admin' );
+            define( 'WINDZFARE_ADMIN_JS_DIR_URL', WINDZFARE_JS_DIR_URL . '/admin' );
+            define( 'WINDZFARE_ADMIN_IMG_DIR_URL', WINDZFARE_IMG_DIR_URL . '/admin' );
 
-			define('WINDZFARE_MENU_DIR_PATH', WINDZFARE_ADMIN_DIR_PATH . '/Menu');
+			define( 'WINDZFARE_MENU_DIR_PATH', WINDZFARE_ADMIN_DIR_PATH . '/Menu' );
 			
         }
         
@@ -91,8 +91,8 @@
         }
         
         public function activate(){
-            $installed = get_option('windzfare_installed');
-            if(!$installed){
+            $installed = get_option( 'windzfare_installed' );
+            if( ! $installed ){
                 update_option( 'windzfare_installed', time() );
             }
             

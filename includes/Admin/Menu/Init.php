@@ -28,7 +28,7 @@ class Init {
         wp_enqueue_script(
             'windzfare-admin',
             WINDZFARE_ADMIN_JS_DIR_URL . '/admin.min.js',
-            [ 'jquery' ],
+            ['jquery'],
             '1.0',
             true
         );

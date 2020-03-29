@@ -44,36 +44,17 @@ class Init {
 			'manage_categories'
 		);
 		
-		add_action('single_template', [ __CLASS__, 'set_page_template' ], 10, 3 );
-		add_action('init', [ __CLASS__, 'add_elementor_support' ], 10, 3 );
+		add_action( 'init', [ __CLASS__, 'add_elementor_support' ], 10, 3 );
 		 
 	}
 	
-	public static function set_page_template( $template ) {
-		global $post;
-		$template_path = ELEMENTOR_PATH . '/modules/page-templates/templates/canvas.php';
-		if ('windzfare_header_footer' === $post->post_type || 
-			'windzfare_nested' === $post->post_type || 
-			'windzfare_template' === $post->post_type || 
-			'windzfare_form' === $post->post_type || 
-			'windzfare_block' === $post->post_type 
-		){
-			if ( file_exists( $template_path ) ) {
-				return $template_path;
-			} else {
-				return ELEMENTOR_PATH . '/includes/page-templates/canvas.php';
-			}
-		}
-		return $template;
-	}
-
 	public static function add_elementor_support() {
 		$elementor_support = get_option( 'elementor_cpt_support' );
 		$default_supports = [ 'windzfare_event' ];
 		if( ! $elementor_support ) {
 			$elementor_support = $default_supports;
 		}else{
-			foreach($default_supports as $default_support){
+			foreach( $default_supports as $default_support ){
 				if( ! in_array( $default_support, $elementor_support ) ) {
 					$elementor_support[] = $default_support;
 				}

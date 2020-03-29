@@ -17,28 +17,28 @@ class Shortcodes{
     }
 
     public static function render_funding_goal( $atts = [] ){
-        $args = shortcode_atts(array(
+        $args = shortcode_atts( [
             'campaign_id'         => get_the_ID(),
             'label'      => 'Goal:',
-        ), $atts );
+        ], $atts );
 
-        return '<div class="windzfare_funding_goal"><span><b>'. $args['label'] .'</b> '. Utils::price(Utils::get_total_goal_by_campaign($args['campaign_id'])) .'</span></div>';
+        return '<div class="windzfare_funding_goal"><span><b>'. $args['label'] .'</b> '. Utils::price( Utils::get_total_goal_by_campaign( $args['campaign_id'] ) ) .'</span></div>';
     }
 
     public static function render_fund_raised( $atts = [] ){
-        $args = shortcode_atts(array(
+        $args = shortcode_atts( [
             'campaign_id'         => get_the_ID(),
             'label'      => 'Fund Raised:',
-        ), $atts );
+        ], $atts );
 
-        return '<div class="windzfare_fund_raised"><span><b>'. $args['label'] .'</b> '. Utils::price(Utils::get_total_fund_raised_by_campaign($args['campaign_id'])) .'</span></div>';
+        return '<div class="windzfare_fund_raised"><span><b>'. $args['label'] .'</b> '. Utils::price( Utils::get_total_fund_raised_by_campaign( $args['campaign_id'] ) ) .'</span></div>';
 
     }
 
     public static function render_donation_level( $atts = [] ){
-        $args = shortcode_atts(array(
+        $args = shortcode_atts( [
             'campaign_id'         => get_the_ID(),
-        ), $atts );
+        ], $atts );
 
         return Partials::output_donation_level( $args['campaign_id'] );
     }
@@ -48,86 +48,82 @@ class Shortcodes{
     }
 
     public static function render_causes_grid( $atts = [] ){
-        $args = shortcode_atts(array(
+        $args = shortcode_atts( [
             'cat'         => '',
             'number'      => -1,
             'col'      => '3',
-            'style'      => '1',
-            'filter'      => 'no',
-            'donation'      => 'no',
-            'author'      => 'yes',
             'show'      => '', // successful, expired, valid
-        ), $atts );
+        ], $atts );
 
         $paged = 1;
         if (get_query_var('paged')){
             $paged = absint( get_query_var( 'paged' ) );
-        }elseif (get_query_var('page')){
+        }elseif ( get_query_var('page') ){
             $paged = absint( get_query_var( 'page' ) );
         }
 
         ob_start();
         
-            if ($args['cat']) {
+            if ( $args['cat'] ) {
                 $cat_array = explode(',', $args['cat']);
-                $query_args = array(
+                $query_args = [
                 'post_type'     => 'product',
-                'tax_query'     => array(
-                    array(
+                'tax_query'     => [
+                    [
                         'taxonomy' => 'product_cat',
                         'field' => 'slug',
                         'terms' =>  $cat_array,
-                    )
-                ),
-                'meta_query'    => array(
-                    array(
+                    ]
+                ],
+                'meta_query'    => [
+                    [
                         'key'       => '_windzfare',
                         'value'     => 'yes',
                         'compare'   => 'LIKE',
-                    ),
-                ),
+                    ],
+                ],
                 'posts_per_page' => $args['number'],
                 'paged' => $paged
-            );
+            ];
             }else{
-                $query_args = array(
+                $query_args = [
                     'post_type'     => 'product',
-                    'meta_query'    => array(
-                        array(
+                    'meta_query'    => [
+                        [
                             'key'       => '_windzfare',
                             'value'     => 'yes',
                             'compare'   => 'LIKE',
-                        ),
-                    ),
+                        ],
+                    ],
                     'posts_per_page' => $args['number'],
                     'paged' => $paged
-                );
+                ];
             }
 
 
-            if (!empty($_GET['author'])) {
+            if ( ! empty($_GET['author'] ) ) {
                 $user_login     = sanitize_text_field( trim( $_GET['author'] ) );
                 $user           = get_user_by( 'login', $user_login );
-                if ($user) {
+                if ( $user ) {
                     $user_id    = $user->ID;
-                    $query_args = array(
+                    $query_args = [
                         'post_type'   => 'product',
                         'author'      => $user_id,
-                        'meta_query'    => array(
-                            array(
+                        'meta_query'    => [
+                            [
                                 'key'       => '_windzfare',
                                 'value'     => 'yes',
                                 'compare'   => 'LIKE',
-                            ),
-                        ),
+                            ],
+                        ],
                         'posts_per_page' => $args['number'],
                         'paged' => $paged
-                    );
+                    ];
                 }
             }
  
             $c_query = new \WP_Query( $query_args );
-            if ($c_query->have_posts()): ?>
+            if ( $c_query->have_posts() ): ?>
             <div class="windzfare-wrapper">
                 <div class="row">
                     <?php while ( $c_query->have_posts() ) : $c_query->the_post();
@@ -159,20 +155,16 @@ class Shortcodes{
     }
 
     public static function render_causes_grid_carousel( $atts = [] ){
-        $args = shortcode_atts(array(
+        $args = shortcode_atts( [
             'cat'         => '',
             'number'      => -1,
             'col'      => '3',
-            'style'      => '1',
-            'filter'      => 'no',
-            'donation'      => 'no',
-            'author'      => 'yes',
             'show'      => '', // successful, expired, valid
-        ), $atts );
+        ], $atts );
 
 
         $paged = 1;
-        if (get_query_var('paged')){
+        if ( get_query_var('paged')){
             $paged = absint( get_query_var( 'paged' ) );
         }elseif (get_query_var('page')){
             $paged = absint( get_query_var( 'page' ) );
@@ -180,83 +172,83 @@ class Shortcodes{
 
         ob_start();
         
-            if ($args['cat']) {
+            if ( $args['cat'] ) {
                 $cat_array = explode(',', $args['cat']);
-                $query_args = array(
+                $query_args = [
                 'post_type'     => 'product',
-                'tax_query'     => array(
-                    array(
+                'tax_query'     => [
+                    [
                         'taxonomy' => 'product_cat',
                         'field' => 'slug',
                         'terms' =>  $cat_array,
-                    )
-                ),
-                'meta_query'    => array(
-                    array(
+                    ]
+                ],
+                'meta_query'    => [
+                    [
                         'key'       => '_windzfare',
                         'value'     => 'yes',
                         'compare'   => 'LIKE',
-                    ),
-                ),
+                    ],
+                ],
                 'posts_per_page' => $args['number'],
                 'paged' => $paged
-            );
+            ];
             }else{
-                $query_args = array(
+                $query_args = [
                     'post_type'     => 'product',
-                    'meta_query'    => array(
-                        array(
+                    'meta_query'    => [
+                        [
                             'key'       => '_windzfare',
                             'value'     => 'yes',
                             'compare'   => 'LIKE',
-                        ),
-                    ),
+                        ],
+                    ],
                     'posts_per_page' => $args['number'],
                     'paged' => $paged
-                );
+                ];
             }
 
 
-            if (!empty($_GET['author'])) {
+            if ( ! empty( $_GET['author'] ) ) {
                 $user_login     = sanitize_text_field( trim( $_GET['author'] ) );
                 $user           = get_user_by( 'login', $user_login );
-                if ($user) {
+                if ( $user ) {
                     $user_id    = $user->ID;
-                    $query_args = array(
+                    $query_args = [
                         'post_type'   => 'product',
                         'author'      => $user_id,
-                        'meta_query'    => array(
-                            array(
+                        'meta_query'    => [
+                            [
                                 'key'       => '_windzfare',
                                 'value'     => 'yes',
                                 'compare'   => 'LIKE',
-                            ),
-                        ),
+                            ],
+                        ],
                         'posts_per_page' => $args['number'],
                         'paged' => $paged
-                    );
+                    ];
                 }
             }
 
             $c_query = new \WP_Query( $query_args );
-            if ($c_query->have_posts()): ?>
+            if ( $c_query->have_posts() ): ?>
             <div class="windzfare-wrapper">
                 <div class="owl-carousel owl-theme windzfare_causes_carousel side_nav">
                     <?php while ( $c_query->have_posts() ) : $c_query->the_post();
                         if ( $args['show'] == 'successful' ):
-                            if ( is_reach_target_goal() ):
-                                Partials::output_causes_grid_carousel_part();
+                            if ( Utils::is_reach_target_goal() ):
+                                Partials::output_causes_grid_carousel_part( $args );
                             endif;
                         elseif ( $args['show'] == 'expired' ):
                             if ( Utils::date_remaining() == false ):
-                                Partials::output_causes_grid_carousel_part();
+                                Partials::output_causes_grid_carousel_part( $args );
                             endif;
                         elseif ( $args['show'] == 'valid' ):
-                            if ( is_campaign_valid() ):
-                                Partials::output_causes_grid_carousel_part();
+                            if ( Utils::is_campaign_valid() ):
+                                Partials::output_causes_grid_carousel_part( $args );
                             endif;
                         else:
-                            Partials::output_causes_grid_carousel_part();
+                            Partials::output_causes_grid_carousel_part( $args );
                         endif;
                     endwhile; ?>
                     </div>

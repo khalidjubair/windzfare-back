@@ -6,11 +6,11 @@ defined( 'ABSPATH' ) || die();
 class Enqueue { 
 
     public function __construct() {
-        add_action( 'wp_enqueue_scripts', [$this, 'enqueue_styles']);
-        add_action( 'elementor/editor/after_enqueue_styles', [$this, 'enqueue_styles']);
-        add_action( 'elementor/preview/enqueue_styles', [$this, 'enqueue_styles']);
+        add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles'] );
+        add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_styles'] );
+        add_action( 'elementor/preview/enqueue_styles', [ $this, 'enqueue_styles'] );
     
-        add_action( 'elementor/frontend/after_enqueue_scripts', [$this, 'enqueue_styles'] );
+        add_action( 'elementor/frontend/after_enqueue_scripts', [ $this, 'enqueue_styles'] );
          
     }
  

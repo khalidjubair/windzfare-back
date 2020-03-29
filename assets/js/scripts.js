@@ -82,16 +82,6 @@ Description:
             }
         })
 
-        // Select2 JS
-        $(".select_dropdown_value").select2();
-
-		$(".select_dropdown_value-limit1").select2({
-		  	maximumSelectionLength: 1
-		});
-		$(".select_dropdown_value-limit2").select2({
-		  	maximumSelectionLength: 2
-		});
-
         // Active Donate value tab
         $(function(){
             $('.select_amount_box').on('click','.select_amount',function(){
@@ -101,17 +91,13 @@ Description:
         });
 
 
-        $("input:radio[name=donation_level_amount]").change(function() {
-            
-            var val = $(this).val();
-
-            alert(val);
-
-
+        $("input:radio[name=wp_donate_amount_field]").change(function() {
+            let val = $(this).val();
             if(val == 'custom'){
-                $("#xs-donate-name-modal").val('');
+                $(".wp_fare_amount").val('');
+                $('.wp_fare_amount').focus();
             }else{
-                $("#xs-donate-name-modal").val(val);
+                $(".wp_fare_amount").val(val);
             }
         });
 
