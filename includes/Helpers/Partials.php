@@ -18,7 +18,6 @@ class Partials{
         $donation_level_fields = get_post_meta($campaign_id, 'repeatable_donation_level_fields', true);
         
         ob_start();
-        $product = wc_get_product($campaign_id);
         if ( $donation_level_fields ) : ?>
 
             <div class="give_donation">
