@@ -21,7 +21,7 @@
 
         private function __construct() {
 
-            $this->define_constants();
+            $this->defines();
             register_activation_hook( __FILE__, [ $this, 'activate' ] );
             add_action( 'plugins_loaded', [ $this, 'init' ] );
             add_action( 'init', [ $this, 'i18n' ] );
@@ -42,7 +42,7 @@
 			load_plugin_textdomain( 'windzfare', false, basename( dirname( __FILE__ ) ) . '/languages' );	
 		}
 
-        public function define_constants(){
+        public function defines(){
             
 			define( 'WINDZFARE_VERSION', self::version );
 			
@@ -106,7 +106,6 @@
 			}
 			
 			$message = sprintf(
-				
 				esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'windzfare' ),
 				'<strong>' . esc_html__( 'Windzfare', 'windzfare' ) . '</strong>',
 				'<strong>' . esc_html__( 'Woocommerce', 'windzfare' ) . '</strong>'
@@ -123,7 +122,6 @@
 			}
 			
 			$message = sprintf(
-				
 				esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'windzfare' ),
 				'<strong>' . esc_html__( 'Windzfare', 'windzfare' ) . '</strong>',
 				'<strong>' . esc_html__( 'Woocommerce', 'windzfare' ) . '</strong>',
@@ -141,7 +139,6 @@
 			}
 			
 			$message = sprintf(
-				
 				esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'windzfare' ),
 				'<strong>' . esc_html__( 'Windzfare', 'windzfare' ) . '</strong>',
 				'<strong>' . esc_html__( 'PHP', 'windzfare' ) . '</strong>',

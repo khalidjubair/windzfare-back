@@ -13,39 +13,39 @@ Description:
 	jQuery(document).ready(function () {
         
         // Causes Carousel
-        $('.windzfare_causes_carousel').owlCarousel({
-            items: 3,
-            loop: true,
-            margin: 30,
-            autoplay: false,
-            dots: false,
-            nav: true,
-            navText: ['<i class="ion-ios-arrow-back"></i>', '<i class="ion-ios-arrow-forward"></i>'],
-            center: false,
-            responsiveClass: true,
-            responsive: {
-                0: {
-                    items: 1,
-                    nav: false,
-                    dots: true,
-                },
-                768: {
-                    items: 2,
-                    nav: false,
-                    dots: true,
-                },
-                992: {
-                    items: 2,
-                    nav: true,
-                    dots: false,
-                },
-                1200: {
-                    items: 3,
-                    nav: true,
-                    dots: false,
-                }
-            }
-        })
+        // $('.windzfare_causes_carousel').owlCarousel({
+        //     items: 3,
+        //     loop: true,
+        //     margin: 30,
+        //     autoplay: false,
+        //     dots: false,
+        //     nav: true,
+        //     navText: ['<i class="ion-ios-arrow-back"></i>', '<i class="ion-ios-arrow-forward"></i>'],
+        //     center: false,
+        //     responsiveClass: true,
+        //     responsive: {
+        //         0: {
+        //             items: 1,
+        //             nav: false,
+        //             dots: true,
+        //         },
+        //         768: {
+        //             items: 2,
+        //             nav: false,
+        //             dots: true,
+        //         },
+        //         992: {
+        //             items: 2,
+        //             nav: true,
+        //             dots: false,
+        //         },
+        //         1200: {
+        //             items: 3,
+        //             nav: true,
+        //             dots: false,
+        //         }
+        //     }
+        // })
 
         // Urgent Cause Carousel
         $('.urgent_cause_carousel').owlCarousel({

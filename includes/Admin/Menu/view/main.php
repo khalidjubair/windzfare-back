@@ -13,7 +13,7 @@ if( isset( $_POST['windzfare-admin-action-submit'] ) ){
 }
 $data =  Utils::get_option( 'windzfare_featured_campaign', 'windzfare_options');
 ?>
-
+ 
 <div class="windzfare-wrapper">
     <div class="windzfare-dashboard-panel">
 

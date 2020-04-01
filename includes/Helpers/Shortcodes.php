@@ -15,7 +15,7 @@ class Shortcodes{
         add_shortcode( 'render_progress_circle', [ __CLASS__, 'render_progress_circle'] );
         add_shortcode( 'render_donation_level', [ __CLASS__, 'render_donation_level'] );
     }
-
+ 
     public static function render_funding_goal( $atts = [] ){
         $args = shortcode_atts( [
             'campaign_id'         => get_the_ID(),
@@ -158,10 +158,24 @@ class Shortcodes{
         $args = shortcode_atts( [
             'cat'         => '',
             'number'      => -1,
+            'data_owl_carousel'      => '',
             'col'      => '3',
             'show'      => '', // successful, expired, valid
-        ], $atts );
 
+
+            //Owl Carousel Dat
+            'items'         => 3,
+            'margin'         => 30,
+            'padding'         => 20,
+            'autoplay'         => true,
+            'responsiveClass'         => true,
+            'dots'         => true,
+            'nav'         => true,
+            'responsive_0'         => 1,
+            'responsive_540'         => 2,
+            'responsive_860'         => 2,
+            'responsive_1000'         => 3,
+        ], $atts );
 
         $paged = 1;
         if ( get_query_var('paged')){
@@ -233,7 +247,20 @@ class Shortcodes{
             $c_query = new \WP_Query( $query_args );
             if ( $c_query->have_posts() ): ?>
             <div class="windzfare-wrapper">
-                <div class="owl-carousel owl-theme windzfare_causes_carousel side_nav">
+                <div class="owl-carousel owl-theme windzfare_causes_carousel side_nav" 
+                data-owl-carousel='{
+							"items": <?php echo $args['items']?>,
+							"margin": <?php echo $args['margin']?>,
+							"padding": <?php echo $args['padding']?>,
+							"autoplay": <?php echo $args['autoplay']?>,
+							"responsiveClass": <?php echo $args['responsiveClass']; ?>,
+							"dots": <?php echo $args['dots']?>,
+							"nav": <?php echo $args['nav']?>,
+							"responsive":{ "0" :{ "items": <?php echo $args['responsive_0']?>},
+							"540" :{ "items": <?php echo $args['responsive_540']?> },
+							"860" :{ "items" : <?php echo $args['responsive_860']?> } ,
+							"1000":{ "items" : <?php echo $args['responsive_1000']?> }}}'>
+
                     <?php while ( $c_query->have_posts() ) : $c_query->the_post();
                         if ( $args['show'] == 'successful' ):
                             if ( Utils::is_reach_target_goal() ):
