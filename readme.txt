@@ -1,5 +1,5 @@
 === Windzfare: Woocommerce based crowdfunding plugin ===
-Contributors: windzfare, khalidjubair
+Contributors: windzfare
 Tags: page builder, editor, landing page, drag-and-drop, elementor, visual editor, wysiwyg, design, maintenance mode, coming soon, under construction, website builder, landing page builder, front-end builder
 Requires at least: 5.0
 Tested up to: 5.4
@@ -145,18 +145,6 @@ To help you get started and learn just how to integrate with Elementor, we have 
 = Be a contributor =
 If you want to contribute, go to our [Elementor GitHub Repository](https://github.com/elementor/elementor) and see where you can help.
 
-You can also add a new language via [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/elementor). We've built a short guide explaining [how to translate and localize the plugin](https://go.elementor.com/translate/).
-
-= Documentation and Support =
-- For documentation and tutorials go to our [Documentation](https://docs.elementor.com/?utm_source=wp-repo&utm_medium=link&utm_campaign=readme).
-- If you have any more questions, visit our support on the [Plugin's Forum](https://wordpress.org/support/plugin/elementor).
-- For more information about features, FAQs and documentation, check out our website at [Elementor Page Builder](https://elementor.com/?utm_source=wp-repo&utm_medium=link&utm_campaign=readme).
-
-= Liked Elementor? =
-- Join our [Facebook Group](https://www.facebook.com/groups/Elementors/).
-- Learn from our tutorials on [Youtube Channel](https://www.youtube.com/c/elementor).
-- Or rate us on [WordPress](https://wordpress.org/support/plugin/elementor/reviews/?filter=5/#new-post) :)
-
 == Installation ==
 
 = Minimum Requirements =
@@ -171,17 +159,10 @@ You can also add a new language via [translate.wordpress.org](https://translate.
 * MySQL version 5.6 or greater
 * WordPress Memory limit of 64 MB or greater (128 MB or higher is preferred)
 
-https://www.youtube.com/watch?v=Ypn6fltn_7s
-
 = Installation =
 
 1. Install using the WordPress built-in Plugin installer, or Extract the zip file and drop the contents in the `wp-content/plugins/` directory of your WordPress installation.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Go to Pages > Add New
-4. Press the 'Edit with Elementor' button.
-5. Now you can drag and drop widgets from the left panel onto the content area, as well as add new sections and columns that make up the page structure.
-
-For documentation and tutorials visit our [Knowledge Base](https://docs.elementor.com/?utm_source=wp-repo&utm_medium=link&utm_campaign=readme).
 
 == Frequently Asked Questions ==
 
@@ -189,35 +170,9 @@ For documentation and tutorials visit our [Knowledge Base](https://docs.elemento
 
 Yes. Think of it like this: a theme is like the frame of the picture, and Elementor is the tool to paint the picture inside the frame.
 
-**Is Elementor compatible with Posts and Custom Post Types?**
-
-It sure is! You can set which post types will enable Elementor in the settings page.
-
-**Can I use other plugin widgets inside Elementor?**
-
-Sure can! Plugin widgets that appear in the WordPress widgets menu will also appear inside Elementor automatically. Just drag and drop them onto the page.
-
-**Do I need to know how to code to use Elementor?**
-
-Absolutely not! Elementor is a live frontend page builder, that lets you reach a high end design with no need to write even a line of code or CSS.
-
-**Will Elementor work with RTL or other languages?**
-
-Yeah! Elementor enables to seamlessly build RTL pages as well as other translated pages in any language. You can read more about [translation and localization](https://go.elementor.com/translate/).
-
-**My site is working with WordPress 2.6, will Elementor work for me?**
-
-No. Elementor supports WordPress 5.0 or greater, and is compatible with PHP 5.6 or greater. We recommend your host supports PHP version 7.0 or greater and MySQL version 5.6 or greater.
-
 == Screenshots ==
 
 1. **Drag & Drop.** Our instant drag & drop lets you easily place every element anywhere on the page.
-2. **Visual Resize Control.** Customize the various elements of the page. Resizing images, changing column sizes and much more.
-3. **Truly Live Edit.** Changes on the page are displayed in realtime. No need to press update or preview.
-4. **Template Library.** Save your pages or sections as templates, so you can easily reuse them again, or choose one of our beautiful pre-designed templates.
-5. **Responsive Design.** Create custom settings for desktop, tablet & mobile by switching between devices.
-6. **Revision History.** Switch between earlier versions of your page design, so your design process is backed up, every step of the way.
-7. **Shape Divider.** Choose from a wide array of shape dividers and separate your sections in endless ways, that until now were simply not possible.
 
 == Changelog ==
 

@@ -103,208 +103,10 @@
         background: $white-color;
         color: $primary-color;
     }
-
-    /*--------- Color Variation --------*/
-    &.second{
-        .windzfare_highlight_tag{
-            background: $second-color;
-        }
-        &:hover .windzfare_causes_content h4{
-            color: $second-color;
-        }
-        .windzfare_button_group{
-            .windzfare_button{
-                background: transparent;
-                color: $second-color;
-            }
-            .windzfare_button:before {
-                background: $second-color;
-            }
-            .windzfare_button:after {
-                background: $white-color;
-            }
-        }
-        &:hover .windzfare_button_group{
-            background: $second-color;
-        }  
-        &:hover .windzfare_button{
-            color: $white-color;
-        }
-        &:hover .windzfare_button:before {
-            background: $white-color;
-        }
-        &:hover .windzfare_button:after {
-            background: $second-color;
-        }
-        &:hover .windzfare_button:hover{
-            background: $white-color;
-            color: $second-color;
-        }
-    }
-    &.third{
-        .windzfare_highlight_tag{
-            background: $third-color;
-        }
-        &:hover .windzfare_causes_content h4{
-            color: $third-color;
-        }
-        .windzfare_button_group{
-            .windzfare_button{
-                background: transparent;
-                color: $third-color;
-            }
-            .windzfare_button:before {
-                background: $third-color;
-            }
-            .windzfare_button:after {
-                background: $white-color;
-            }
-        }
-        &:hover .windzfare_button_group{
-            background: $third-color;
-        }  
-        &:hover .windzfare_button{
-            color: $white-color;
-        }
-        &:hover .windzfare_button:before {
-            background: $white-color;
-        }
-        &:hover .windzfare_button:after {
-            background: $third-color;
-        }
-        &:hover .windzfare_button:hover{
-            background: $white-color;
-            color: $third-color;
-        }
-    }
-    &.fourth{
-        .windzfare_highlight_tag{
-            background: $fourth-color;
-        }
-        &:hover .windzfare_causes_content h4{
-            color: $fourth-color;
-        }
-        .windzfare_button_group{
-            .windzfare_button{
-                background: transparent;
-                color: $fourth-color;
-            }
-            .windzfare_button:before {
-                background: $fourth-color;
-            }
-            .windzfare_button:after {
-                background: $white-color;
-            }
-        }
-        &:hover .windzfare_button_group{
-            background: $fourth-color;
-        }  
-        &:hover .windzfare_button{
-            color: $white-color;
-        }
-        &:hover .windzfare_button:before {
-            background: $white-color;
-        }
-        &:hover .windzfare_button:after {
-            background: $fourth-color;
-        }
-        &:hover .windzfare_button:hover{
-            background: $white-color;
-            color: $fourth-color;
-        }
-    }
-    &.fifth{
-        .windzfare_highlight_tag{
-            background: $fifth-color;
-        }
-        &:hover .windzfare_causes_content h4{
-            color: $fifth-color;
-        }
-        .windzfare_button_group{
-            .windzfare_button{
-                background: transparent;
-                color: $fifth-color;
-            }
-            .windzfare_button:before {
-                background: $fifth-color;
-            }
-            .windzfare_button:after {
-                background: $white-color;
-            }
-        }
-        &:hover .windzfare_button_group{
-            background: $fifth-color;
-        }  
-        &:hover .windzfare_button{
-            color: $white-color;
-        }
-        &:hover .windzfare_button:before {
-            background: $white-color;
-        }
-        &:hover .windzfare_button:after {
-            background: $fifth-color;
-        }
-        &:hover .windzfare_button:hover{
-            background: $white-color;
-            color: $fifth-color;
-        }
-    }
-    &.sixth{
-        .windzfare_highlight_tag{
-            background: $sixth-color;
-        }
-        &:hover .windzfare_causes_content h4{
-            color: $sixth-color;
-        }
-        .windzfare_button_group{
-            .windzfare_button{
-                background: transparent;
-                color: $sixth-color;
-            }
-            .windzfare_button:before {
-                background: $sixth-color;
-            }
-            .windzfare_button:after {
-                background: $white-color;
-            }
-        }
-        &:hover .windzfare_button_group{
-            background: $sixth-color;
-        }  
-        &:hover .windzfare_button{
-            color: $white-color;
-        }
-        &:hover .windzfare_button:before {
-            background: $white-color;
-        }
-        &:hover .windzfare_button:after {
-            background: $sixth-color;
-        }
-        &:hover .windzfare_button:hover{
-            background: $white-color;
-            color: $sixth-color;
-        }
-    }
-}
-
-.windzfare_causes.second{
-    /*--------- Color Variation --------*/
-    &.second:hover .windzfare_causes_content h4{
-        color: $second-color;
-    }
-    &.third:hover .windzfare_causes_content h4{
-        color: $third-color;
-    }
-    &.fourth:hover .windzfare_causes_content h4{
-        color: $fourth-color;
-    }
-    &.fifth:hover .windzfare_causes_content h4{
-        color: $fifth-color;
-    }
 }
 
 /*--------- causes_carousel Navs --------*/
-.owl-carousel.causes_carousel.side_nav .owl-nav {
+.owl-carousel.windzfare_causes_carousel.side_nav .owl-nav {
     margin-top: 0px;
     text-align: center;
     -webkit-tap-highlight-color: transparent;
@@ -324,8 +126,7 @@
     }
 }
 
-
-.owl-carousel.causes_carousel .owl-nav {
+.owl-carousel.windzfare_causes_carousel .owl-nav {
     margin-top: 0px;
     text-align: center;
     -webkit-tap-highlight-color: transparent;
@@ -363,7 +164,7 @@
     }
 }
 /*--------- causes_carousel Dots --------*/
-.owl-carousel.causes_carousel .owl-dots {
+.owl-carousel.windzfare_causes_carousel .owl-dots {
     position: relative;
     text-align: center; 
     display: flex;

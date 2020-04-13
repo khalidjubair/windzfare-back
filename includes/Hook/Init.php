@@ -10,7 +10,7 @@ class Init{
         if( is_admin() ){
             new \Windzfare\Admin\Init;  
         }
-
+ 
         //Cptui
         new \Windzfare\Cptui\Init;
 
@@ -21,8 +21,17 @@ class Init{
         add_action( 'woocommerce_add_to_cart_validation', [ __CLASS__, 'remove_item_from_cart' ], 10, 3 );
         add_action( 'woocommerce_add_cart_item', [ __CLASS__, 'save_user_funding_to_cookie' ], 10, 2 ); 
         add_action( 'woocommerce_before_calculate_totals', [ __CLASS__, 'add_user_funding' ] );
+        // add_filter( 'template_include', [ __CLASS__, 'include_template' ], 10, 2 ); 
     }
-
+    public static function include_template( $template_path ) {
+        if ( get_post_type() == 'product' ) {
+            if ( is_single() ) {
+                
+                $template_path = WINDZFARE_TEMPLATES_DIR_PATH . '/single-campaign.php';
+            }
+        }
+        return $template_path;
+    }
     public static function redirect_to_checkout( $url ) {
         if ( ! empty( $_REQUEST['add-to-cart'] ) ){
             $product_id = absint( $_REQUEST['add-to-cart'] );

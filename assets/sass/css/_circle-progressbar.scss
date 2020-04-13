@@ -1,0 +1,44 @@
+.windzfare_progress_circular_content{
+    text-align: center;       /* left,center,right */
+}
+.windzfare_progress_circular{
+    width: 200px;
+    height: 200px;
+}
+.windzfare_progress_circular .windzfare_progress_circular_track{
+    fill: #555;
+    stroke: #000;
+    stroke-width: 4px;
+    transform: rotate(90deg)translate(0px, -80px);
+}
+.windzfare_progress_circular .windzfare_progress_circular_fill {
+    fill: rgba(0, 0, 0, 0);
+    stroke-width: 4;
+    stroke: #999;
+    stroke-dasharray: 219.99078369140625;
+    stroke-dashoffset: -219.99078369140625;
+    transition: stroke-dashoffset 2s;
+    transform: rotate(90deg)translate(0px, -80px);
+}
+.windzfare_progress_circular .windzfare_progress_circular_value{
+    text-anchor: middle;
+    fill: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    font-style: normal;         /* default,normal,italic,oblique */
+    text-transform: unset;  /* inherit,initial,unset,uppercase,lowercase,capitalize */
+    text-decoration: none;  /* default,none,underline,overline,line-through */
+}
+.windzfare_progress_circular .windzfare_progress_circular_text {
+    text-anchor: middle;
+    fill: #aaa;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    font-style: normal;         /* default,normal,italic,oblique */
+    text-transform: unset;  /* inherit,initial,unset,uppercase,lowercase,capitalize */
+    text-decoration: none;  /* default,none,underline,overline,line-through */
+}

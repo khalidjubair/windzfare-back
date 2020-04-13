@@ -17,8 +17,7 @@ class Partials{
         }
         $donation_level_fields = get_post_meta( $campaign_id, 'repeatable_donation_level_fields', true );
         
-        ob_start();
-        if ( $donation_level_fields ) : ?>
+        ob_start(); ?>
 
             <div class="give_donation">
                 <form enctype="multipart/form-data" method="post" class="cart">
@@ -29,6 +28,7 @@ class Partials{
                             </div>
                             <input type="text" name="wp_fare_amount"  class="wp_fare_amount" value = "" placeholder="<?php esc_html_e( 'Amount', 'windzfare' ); ?>"/>
                         </div>
+                        <?php if ( $donation_level_fields ) : ?>
                         <div class="select_amount_box">
                         <div class="selectdonate"><?php esc_html_e('Select Donation','windzfare');?></div>
                             <?php foreach ( $donation_level_fields as $field ) { ?>
@@ -45,16 +45,17 @@ class Partials{
                             </label>
                         </div>
                     </div>
+                    <?php endif; ?>
                     <input type="hidden" value="<?php echo esc_attr( $campaign_id ); ?>" name="add-to-cart">
                     <div class="windzfare_button_group">
                         <input class="windzfare_button effect_1" type="submit" value="<?php esc_html_e('Donate Now', 'windzfare'); ?>" name="submit">
                     </div>
                 </form>
             </div>
-        <?php endif; ?>
         <?php
         $html = ob_get_clean();
         return $html;
+
     }
 
     public static function output_causes( $atts = [] ){
@@ -168,14 +169,17 @@ class Partials{
     
     }
 
-    public static function output_causes_grid_part( $args ){
+    public static function output_causes_grid_part( $args = null){
 
-        $funding_goal   = Utils::get_total_goal_by_campaign( get_the_ID() );
-        $fund_raised_percent   = Utils::get_fund_raised_percent_format( get_the_ID() );
+        if( ! isset( $args['campaign_id'] ) ){
+            return;
+        }
+        $funding_goal   = Utils::get_total_goal_by_campaign( $args['campaign_id'] );
+        $fund_raised_percent   = Utils::get_fund_raised_percent_format( $args['campaign_id'] );
         $image_link = wp_get_attachment_url( get_post_thumbnail_id() );
         
         $raised = 0;
-        $fund_raised =  Utils::get_total_fund_raised_by_campaign( get_the_ID() );
+        $fund_raised =  Utils::get_total_fund_raised_by_campaign( $args['campaign_id'] );
         
         if ( $fund_raised ){
             $raised = $fund_raised;
@@ -185,12 +189,12 @@ class Partials{
         $grid = 12 / $cols;
         
         ?>
-        <div class="col-lg-<?php echo $grid; ?> col-md-6">
+        <div class="windzfare_causes_colored col-lg-<?php echo $grid; ?> col-md-6">
             <div class="windzfare_causes">
                 <div class="windzfare_causes_wrapper">
                     <div class="windzfare_causes_image">
                         <img class="primary_img" src="<?php echo $image_link; ?>" alt="">
-                        <?php $categories = get_the_terms( get_the_ID(), 'product_cat' ); ?>
+                        <?php $categories = get_the_terms( $args['campaign_id'], 'product_cat' ); ?>
                         <div class="windzfare_highlight_tag"><?php echo $categories[0]->name; ?></div>
                     </div>
                     <div class="windzfare_causes_content">
@@ -219,14 +223,17 @@ class Partials{
         <?php
     }
 
-    public static function output_causes_grid_carousel_part(){
+    public static function output_causes_grid_carousel_part( $campaign_id = null ){
+        
+        if( $campaign_id == null ) 
+            return;
 
-        $funding_goal   = Utils::get_total_goal_by_campaign( get_the_ID() );
-        $fund_raised_percent   = Utils::get_fund_raised_percent_format( get_the_ID() );
+        $funding_goal   = Utils::get_total_goal_by_campaign( $campaign_id );
+        $fund_raised_percent   = Utils::get_fund_raised_percent_format( $campaign_id );
         $image_link = wp_get_attachment_url( get_post_thumbnail_id() );
         
         $raised = 0;
-        $fund_raised =  Utils::get_total_fund_raised_by_campaign( get_the_ID() );
+        $fund_raised =  Utils::get_total_fund_raised_by_campaign( $campaign_id );
         
         if ( $fund_raised ){
             $raised = $fund_raised;
@@ -238,7 +245,7 @@ class Partials{
                 <div class="windzfare_causes_wrapper">
                     <div class="windzfare_causes_image">
                         <img class="primary_img" src="<?php echo $image_link; ?>" alt="">
-                        <?php $categories = get_the_terms( get_the_ID(), 'product_cat' ); ?>
+                        <?php $categories = get_the_terms( $campaign_id, 'product_cat' ); ?>
                         <div class="windzfare_highlight_tag"><?php echo $categories[0]->name; ?></div>
                     </div>
                     <div class="windzfare_causes_content">

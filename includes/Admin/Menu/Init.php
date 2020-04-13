@@ -8,7 +8,7 @@ class Init {
     static $menu_slug = '';
 
     public function __construct() {
-            
+
         add_action( 'admin_menu', [ __CLASS__, 'add_menu' ], 21 );
         add_action( 'admin_enqueue_scripts', [ __CLASS__, 'enqueue_scripts' ] );
     }
@@ -53,7 +53,6 @@ class Init {
         if ( is_readable( $file ) ) {
             include( $file );
         }
-        
     }
 
     public static function render_main() {

@@ -1,7 +1,8 @@
 /*---- Progressbar -----*/
-.windzfare_progress_content {
+
+.windzfare_progress_content{
+    
     position: relative;
-    margin-top: 40px;
     &:last-child {
         margin-bottom: 0;
     }
@@ -15,27 +16,6 @@
         background: $primary-color;
         animation: progress 1.5s ease-in-out forwards;
         box-shadow: 0px 5px 7px rgba($primary-color, 0.2);
-        &.striped{
-            position: relative;
-            &:before{
-                content: "";
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background-image: -webkit-linear-gradient(-45deg, rgba($white-color, 0.5) 25%, transparent 5%, transparent 50%, rgba($white-color, 0.5) 50%, rgba($white-color, 0.5) 75%, transparent 75%, transparent);
-                background-image: -o-linear-gradient(-45deg, rgba($white-color, 0.5) 25%, transparent 5%, transparent 50%, rgba($white-color, 0.5) 50%, rgba($white-color, 0.5) 75%, transparent 75%, transparent);
-                background-image: linear-gradient(-45deg, rgba($white-color, 0.5) 25%, transparent 5%, transparent 50%, rgba($white-color, 0.5) 50%, rgba($white-color, 0.5) 75%, transparent 75%, transparent);
-                background-size: 40px 40px;
-                overflow: hidden;
-            }
-            &.left_anim:before{
-                -webkit-animation: moveleft 2s linear infinite;
-                -o-animation: moveleft 2s linear infinite;
-                animation: moveleft 2s linear infinite;
-            }
-        }
     }
     .windzfare_progress_text {
         position: absolute;
@@ -94,50 +74,63 @@
             }
         }
     }
-    &.windzfare_progress_type2{
-        text-align: center;
-        overflow: hidden;
-        .windzfare_progress_text{
-            position: absolute;
-            top: 50%;
-            right: auto;
-            bottom: 0;
-            margin-bottom: 0;
-            left: calc(50% - 15px);
-            transform: translate(-80%, -50%);
-        }
-        .windzfare_progress_value{
-            position: absolute;
-            top: 50%;
-            right: auto;
-            bottom: 0;
-            margin-bottom: 0;
-            left: calc(50%);
-            transform: translate(-50%, -50%);
-        }
-        .windzfare_progress_text + .windzfare_progress_value{
-            left: calc(50% + 15px);
-            -webkit-transform: translate(10%, -50%);
-            transform: translate(10%, -50%);
+
+    &.windzfare_progress_bar_3{
+        .windzfare_progress_bar {
+            position: relative;
+            &:before{
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-image: -webkit-linear-gradient(-45deg, rgba($white-color, 0.5) 25%, transparent 5%, transparent 50%, rgba($white-color, 0.5) 50%, rgba($white-color, 0.5) 75%, transparent 75%, transparent);
+                background-image: -o-linear-gradient(-45deg, rgba($white-color, 0.5) 25%, transparent 5%, transparent 50%, rgba($white-color, 0.5) 50%, rgba($white-color, 0.5) 75%, transparent 75%, transparent);
+                background-image: linear-gradient(-45deg, rgba($white-color, 0.5) 25%, transparent 5%, transparent 50%, rgba($white-color, 0.5) 50%, rgba($white-color, 0.5) 75%, transparent 75%, transparent);
+                background-size: 40px 40px;
+                overflow: hidden;
+            }
+            &.left_anim:before{
+                -webkit-animation: moveleft 2s linear infinite;
+                -o-animation: moveleft 2s linear infinite;
+                animation: moveleft 2s linear infinite;
+            }
         }
     }
 
-    .windzfare_progress_type3{
-        .windzfare_progress_bar{
+    &.windzfare_progress_bar_2{
+        margin: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .windzfare_progress_inner{
+            width: 100%;
+        }
+        .windzfare_progress_value {
             position: absolute;
             right: 0;
-            &.striped{
-                position: absolute;
-                right: 0;
+            top: 100%;
+            background: $white-color;
+            border-radius: 100%;
+            font-family: $heading-font;
+            font-size: $font-12;
+            font-weight: $font-semibold;
+            line-height: 35px;
+            padding: 0px 0px;
+            color: $primary-color;
+            margin-bottom: 0;
+            width: 35px;
+            height: 35px;
+            text-align: center;
+            transform: translateY(calc(-50% - 5px));
+            box-shadow: 0px 0px 13px rgba($primary-color, 0.1);
+            &:after{
+                display: none;
             }
         }
-        .windzfare_progress_text{
-            left: auto;
-            right: 0;
-        }
-        .windzfare_progress_value{
-            right: auto;
-            left: 0;
+        .windzfare_progress_amount span {
+            font-size: $font-14;
         }
     }
 
@@ -242,136 +235,6 @@
     
 }
 
-.second .windzfare_progress_content {
-    .windzfare_progress_bar {
-        background: $second-color;
-        box-shadow: 0px 5px 7px rgba($second-color, 0.2);
-    }
-    .windzfare_progress_text {
-        background: $second-color;
-    }
-    .windzfare_progress_value {
-        background: $second-color;
-        &:after{
-            border-top: 5px solid $second-color;
-        }
-    }
-    .windzfare_progress_amount{
-        span{
-            i{
-                color: $second-color;
-            }
-            b{
-                color: $second-color;
-            }
-        }
-    }
-}
-
-.third .windzfare_progress_content {
-    .windzfare_progress_bar {
-        background: $third-color;
-        box-shadow: 0px 5px 7px rgba($third-color, 0.2);
-    }
-    .windzfare_progress_text {
-        background: $third-color;
-    }
-    .windzfare_progress_value {
-        background: $third-color;
-        &:after{
-            border-top: 5px solid $third-color;
-        }
-    }
-    .windzfare_progress_amount{
-        span{
-            i{
-                color: $third-color;
-            }
-            b{
-                color: $third-color;
-            }
-        }
-    }
-}
-
-.fourth .windzfare_progress_content {
-    .windzfare_progress_bar {
-        background: $fourth-color;
-        box-shadow: 0px 5px 7px rgba($fourth-color, 0.2);
-    }
-    .windzfare_progress_text {
-        background: $fourth-color;
-    }
-    .windzfare_progress_value {
-        background: $fourth-color;
-        &:after{
-            border-top: 5px solid $fourth-color;
-        }
-    }
-    .windzfare_progress_amount{
-        span{
-            i{
-                color: $fourth-color;
-            }
-            b{
-                color: $fourth-color;
-            }
-        }
-    }
-}
-
-.fifth .windzfare_progress_content {
-    .windzfare_progress_bar {
-        background: $fifth-color;
-        box-shadow: 0px 5px 7px rgba($fifth-color, 0.2);
-    }
-    .windzfare_progress_text {
-        background: $fifth-color;
-    }
-    .windzfare_progress_value {
-        background: $fifth-color;
-        &:after{
-            border-top: 5px solid $fifth-color;
-        }
-    }
-    .windzfare_progress_amount{
-        span{
-            i{
-                color: $fifth-color;
-            }
-            b{
-                color: $fifth-color;
-            }
-        }
-    }
-}
-
-.sixth .windzfare_progress_content {
-    .windzfare_progress_bar {
-        background: $sixth-color;
-        box-shadow: 0px 5px 7px rgba($sixth-color, 0.2);
-    }
-    .windzfare_progress_text {
-        background: $sixth-color;
-    }
-    .windzfare_progress_value {
-        background: $sixth-color;
-        &:after{
-            border-top: 5px solid $sixth-color;
-        }
-    }
-    .windzfare_progress_amount{
-        span{
-            i{
-                color: $sixth-color;
-            }
-            b{
-                color: $sixth-color;
-            }
-        }
-    }
-}
-
 @keyframes progress {
     from {
         width: 0;
@@ -388,9 +251,6 @@
         opacity: 1;
     }
 }
-
-
-
 
 @-webkit-keyframes moveleft {
     from  { background-position: 40px 0; }

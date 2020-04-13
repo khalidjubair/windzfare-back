@@ -52,6 +52,7 @@
             define( 'WINDZFARE_DIR_URL', plugin_dir_url( __FILE__ ) );
             define( 'WINDZFARE_DIR_PATH', plugin_dir_path( __FILE__ ) );
 
+            define( 'WINDZFARE_TEMPLATES_DIR_PATH', WINDZFARE_DIR_PATH . '/templates' );
             define( 'WINDZFARE_INCLUDES_DIR_PATH', WINDZFARE_DIR_PATH . '/includes' );
 			define( 'WINDZFARE_ADMIN_DIR_PATH', WINDZFARE_INCLUDES_DIR_PATH . '/Admin' );
 			

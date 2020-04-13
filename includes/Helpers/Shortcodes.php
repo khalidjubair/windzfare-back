@@ -20,24 +20,31 @@ class Shortcodes{
         $args = shortcode_atts( [
             'campaign_id'         => get_the_ID(),
             'label'      => 'Goal:',
+            'icon'      => '',
         ], $atts );
-
-        return '<div class="windzfare_funding_goal"><span><b>'. $args['label'] .'</b> '. Utils::price( Utils::get_total_goal_by_campaign( $args['campaign_id'] ) ) .'</span></div>';
+ 
+        $funding_goal_icon = str_replace('+', ' ', $args['icon'] );
+        return '<div class="windzfare_funding_goal"><span><i class="'. $funding_goal_icon .'"></i><b>'. $args['label'] .'</b> '. Utils::price( Utils::get_total_goal_by_campaign( $args['campaign_id'] ) ) .'</span></div>';
     }
 
     public static function render_fund_raised( $atts = [] ){
         $args = shortcode_atts( [
             'campaign_id'         => get_the_ID(),
             'label'      => 'Fund Raised:',
+            'icon'      => '',
         ], $atts );
 
-        return '<div class="windzfare_fund_raised"><span><b>'. $args['label'] .'</b> '. Utils::price( Utils::get_total_fund_raised_by_campaign( $args['campaign_id'] ) ) .'</span></div>';
+        
+        $fund_raised_icon = str_replace('+', ' ', $args['icon'] );
+        
+        return '<div class="windzfare_fund_raised"><span><i class="'. $fund_raised_icon .'"></i><b>'. $args['label'] .'</b> '. Utils::price( Utils::get_total_fund_raised_by_campaign( $args['campaign_id'] ) ) .'</span></div>';
 
     }
 
     public static function render_donation_level( $atts = [] ){
         $args = shortcode_atts( [
-            'campaign_id'         => get_the_ID(),
+            'campaign_id'          => null,
+            'button_label'         => __( 'Donate Now', 'windzfare' ),
         ], $atts );
 
         return Partials::output_donation_level( $args['campaign_id'] );
@@ -127,6 +134,7 @@ class Shortcodes{
             <div class="windzfare-wrapper">
                 <div class="row">
                     <?php while ( $c_query->have_posts() ) : $c_query->the_post();
+                        $args['campaign_id'] = get_the_ID();
                         if ( $args['show'] == 'successful' ):
                             if ( Utils::is_reach_target_goal() ):
                                 Partials::output_causes_grid_part( $args );
@@ -171,12 +179,17 @@ class Shortcodes{
             'responsiveClass'         => true,
             'dots'         => true,
             'nav'         => true,
+            'nav_prev'         => "ion-ios-arrow-forward",
+            'nav_next'         => "ion-ios-arrow-back",
             'responsive_0'         => 1,
             'responsive_540'         => 2,
             'responsive_860'         => 2,
             'responsive_1000'         => 3,
         ], $atts );
-
+        
+        $nav_prev = str_replace( '+', ' ', $args['nav_prev'] );
+        $nav_next = str_replace( '+', ' ', $args['nav_next'] );
+        
         $paged = 1;
         if ( get_query_var('paged')){
             $paged = absint( get_query_var( 'paged' ) );
@@ -189,24 +202,26 @@ class Shortcodes{
             if ( $args['cat'] ) {
                 $cat_array = explode(',', $args['cat']);
                 $query_args = [
-                'post_type'     => 'product',
-                'tax_query'     => [
-                    [
-                        'taxonomy' => 'product_cat',
-                        'field' => 'slug',
-                        'terms' =>  $cat_array,
-                    ]
-                ],
-                'meta_query'    => [
-                    [
-                        'key'       => '_windzfare',
-                        'value'     => 'yes',
-                        'compare'   => 'LIKE',
+                    'post_type'     => 'product',
+                    'tax_query'     => [
+                        [
+                            'taxonomy' => 'product_cat',
+                            'field' => 'slug',
+                            'terms' =>  $cat_array,
+                        ]
                     ],
-                ],
-                'posts_per_page' => $args['number'],
-                'paged' => $paged
-            ];
+                    
+                    'meta_query'    => [
+                        [
+                            'key'       => '_windzfare',
+                            'value'     => 'yes',
+                            'compare'   => 'LIKE',
+                        ],
+                    ],
+
+                    'posts_per_page' => $args['number'],
+                    'paged' => $paged
+                ];
             }else{
                 $query_args = [
                     'post_type'     => 'product',
@@ -221,7 +236,6 @@ class Shortcodes{
                     'paged' => $paged
                 ];
             }
-
 
             if ( ! empty( $_GET['author'] ) ) {
                 $user_login     = sanitize_text_field( trim( $_GET['author'] ) );
@@ -243,7 +257,7 @@ class Shortcodes{
                     ];
                 }
             }
-
+     
             $c_query = new \WP_Query( $query_args );
             if ( $c_query->have_posts() ): ?>
             <div class="windzfare-wrapper">
@@ -262,20 +276,21 @@ class Shortcodes{
 							"1000":{ "items" : <?php echo $args['responsive_1000']?> }}}'>
 
                     <?php while ( $c_query->have_posts() ) : $c_query->the_post();
+                    $campaign_id = get_the_ID();
                         if ( $args['show'] == 'successful' ):
                             if ( Utils::is_reach_target_goal() ):
-                                Partials::output_causes_grid_carousel_part( $args );
+                                Partials::output_causes_grid_carousel_part( $campaign_id );
                             endif;
                         elseif ( $args['show'] == 'expired' ):
                             if ( Utils::date_remaining() == false ):
-                                Partials::output_causes_grid_carousel_part( $args );
+                                Partials::output_causes_grid_carousel_part( $campaign_id );
                             endif;
                         elseif ( $args['show'] == 'valid' ):
                             if ( Utils::is_campaign_valid() ):
-                                Partials::output_causes_grid_carousel_part( $args );
+                                Partials::output_causes_grid_carousel_part( $campaign_id );
                             endif;
                         else:
-                            Partials::output_causes_grid_carousel_part( $args );
+                            Partials::output_causes_grid_carousel_part( $campaign_id );
                         endif;
                     endwhile; ?>
                     </div>
@@ -289,32 +304,46 @@ class Shortcodes{
         return $html;
     }
 
-    public static function render_progress_bar(){
+    public static function render_progress_bar( $atts = null ){
+        $args = shortcode_atts( [
+            'campaign_id'         => get_the_ID(),
+            'style'               => '1',
+        ], $atts );
+
         return '<div class="windzfare-wrapper">
-                    <div class="windzfare_progress_content">
+                    <div class="windzfare_progress_content windzfare_progress_bar_'.$args['style'].'">
                         <div class="windzfare_progress_inner">
                             <div class="windzfare_progress_bar_back">
-                                <div class="windzfare_progress_bar" style="max-width: '. Utils::get_fund_raised_percent() .'%;"><span class="windzfare_progress_value">'. Utils::get_fund_raised_percent() .'</span></div>
+                                <div class="windzfare_progress_bar" style="max-width: '. Utils::get_fund_raised_percent( $args['campaign_id'] ) .'%;">
+                                    <span class="windzfare_progress_value">'. Utils::get_fund_raised_percent( $args['campaign_id'] ) .'</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>';
     }
 
-    public static function render_progress_circle(){
+    public static function render_progress_circle( $atts = null ){
+        $args = shortcode_atts( [
+            'campaign_id'         => get_the_ID(),
+            'postfix'         => '',
+        ], $atts );
+
         return '<div class="windzfare-wrapper">
-                    <div class="windzfare_progress_inner">
-                        <div class="windzfare_progress_bar_back">
-                            <span class="windzfare_progress_left">
-                                <span class="windzfare_progress_bar"></span>
-                            </span>
-                            <span class="windzfare_progress_right">
-                                <span class="windzfare_progress_bar"></span>
-                            </span>
-                            <div class="windzfare_progress_value">'. Utils::get_fund_raised_percent() .'</div>
+                    <div class="windzfare_progress_content windzfare_progress_bar_circle">
+                        <div class="windzfare_progress_inner">
+                            <div class="windzfare_progress_bar_back">
+                                <span class="windzfare_progress_left">
+                                    <span class="windzfare_progress_bar"></span>
+                                </span>
+                                <span class="windzfare_progress_right">
+                                    <span class="windzfare_progress_bar"></span>
+                                </span>
+                                <div class="windzfare_progress_value">'. Utils::get_fund_raised_percent( $args['campaign_id'] ) . esc_attr($args['postfix']).'</div>
+                            </div>
                         </div>
                     </div>
                 </div>';
     }
 
-}
+} 

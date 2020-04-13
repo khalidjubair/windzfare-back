@@ -13,7 +13,7 @@ class Enqueue {
         add_action( 'elementor/frontend/after_enqueue_scripts', [ $this, 'enqueue_styles'] );
          
     }
- 
+  
     public function enqueue_styles() {
         wp_enqueue_style( 'windzfare-libraries',  
             WINDZFARE_CSS_DIR_URL . '/libraries.min.css');
